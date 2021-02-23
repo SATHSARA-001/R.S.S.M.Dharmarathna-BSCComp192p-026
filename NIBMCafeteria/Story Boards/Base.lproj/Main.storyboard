@@ -253,6 +253,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b1-cC-FGY">
                                                         <rect key="frame" x="0.0" y="258" width="374" height="30"/>
                                                         <state key="normal" title="Login"/>
+                                                        <connections>
+                                                            <action selector="login:" destination="ylu-bw-HCF" eventType="touchUpInside" id="1Cm-62-nE6"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-Ox-XwI">
                                                         <rect key="frame" x="0.0" y="308" width="374" height="30"/>
@@ -297,6 +300,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="0fa-HU-BoE"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="Eoo-gL-KEn" id="C7j-I4-mpm"/>
+                        <outlet property="passwordTextField" destination="00a-kh-sNf" id="QWb-hk-5jh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OdR-lq-tsB" sceneMemberID="firstResponder"/>
             </objects>
