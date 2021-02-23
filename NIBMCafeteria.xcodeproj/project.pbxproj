@@ -13,6 +13,7 @@
 		8C59866C25E4B628005A6F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59866A25E4B628005A6F74 /* Main.storyboard */; };
 		8C59866E25E4B62F005A6F74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C59866D25E4B62F005A6F74 /* Assets.xcassets */; };
 		8C59867125E4B62F005A6F74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59866F25E4B62F005A6F74 /* LaunchScreen.storyboard */; };
+		8C59868425E4C399005A6F74 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59868325E4C399005A6F74 /* TabBarController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8C59866D25E4B62F005A6F74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C59867025E4B62F005A6F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C59867225E4B62F005A6F74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C59868325E4C399005A6F74 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +87,9 @@
 		8C59867E25E4B66E005A6F74 /* Story Boards */ = {
 			isa = PBXGroup;
 			children = (
-				8C59866A25E4B628005A6F74 /* Main.storyboard */,
 				8C59866F25E4B62F005A6F74 /* LaunchScreen.storyboard */,
+				8C59866A25E4B628005A6F74 /* Main.storyboard */,
+				8C59868325E4C399005A6F74 /* TabBarController.storyboard */,
 			);
 			path = "Story Boards";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			files = (
 				8C59867125E4B62F005A6F74 /* LaunchScreen.storyboard in Resources */,
 				8C59866E25E4B62F005A6F74 /* Assets.xcassets in Resources */,
+				8C59868425E4C399005A6F74 /* TabBarController.storyboard in Resources */,
 				8C59866C25E4B628005A6F74 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
