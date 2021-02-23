@@ -100,7 +100,7 @@
         <!--Register-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC" id="BYZ-38-t0r" customClass="RegisterVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,6 +150,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3a-de-pp0">
                                                         <rect key="frame" x="0.0" y="312" width="374" height="30"/>
                                                         <state key="normal" title="Register"/>
+                                                        <connections>
+                                                            <action selector="registerAUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vmp-Ua-zNC"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjT-Gs-Ja5">
                                                         <rect key="frame" x="0.0" y="362" width="374" height="30"/>
@@ -199,6 +202,11 @@
                     <navigationItem key="navigationItem" title="Register" id="7FN-is-Lzf">
                         <barButtonItem key="backBarButtonItem" title=" " id="Rlf-Mz-QuN"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="sbM-j9-nPd" id="Hy9-6P-qfV"/>
+                        <outlet property="passwordTextField" destination="xnC-d8-fTq" id="G4L-MK-9xY"/>
+                        <outlet property="phoneTextField" destination="e93-4t-ak4" id="ZEY-fb-f4l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,7 +215,7 @@
         <!--Login-->
         <scene sceneID="7EV-MS-87O">
             <objects>
-                <viewController storyboardIdentifier="RegisterVC" id="ylu-bw-HCF" customClass="RegisterVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="ylu-bw-HCF" customClass="LoginVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Erg-Et-z6j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,7 +262,7 @@
                                                         <rect key="frame" x="0.0" y="258" width="374" height="30"/>
                                                         <state key="normal" title="Login"/>
                                                         <connections>
-                                                            <action selector="login:" destination="ylu-bw-HCF" eventType="touchUpInside" id="1Cm-62-nE6"/>
+                                                            <action selector="login:" destination="ylu-bw-HCF" eventType="touchUpInside" id="ngf-mM-Wdp"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-Ox-XwI">
@@ -301,8 +309,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="0fa-HU-BoE"/>
                     <connections>
-                        <outlet property="emailTextField" destination="Eoo-gL-KEn" id="C7j-I4-mpm"/>
-                        <outlet property="passwordTextField" destination="00a-kh-sNf" id="QWb-hk-5jh"/>
+                        <outlet property="emailTextField" destination="Eoo-gL-KEn" id="t0Y-Wp-mdY"/>
+                        <outlet property="passwordTextField" destination="00a-kh-sNf" id="4JL-7x-um2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OdR-lq-tsB" sceneMemberID="firstResponder"/>

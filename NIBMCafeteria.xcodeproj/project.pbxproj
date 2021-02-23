@@ -17,6 +17,7 @@
 		8CAF029D25E55253006980BE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF029C25E55253006980BE /* LoginVC.swift */; };
 		8CAF02A025E55261006980BE /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF029F25E55261006980BE /* RegisterVC.swift */; };
 		8CC8896425E55BA200B01434 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8896325E55BA200B01434 /* GoogleService-Info.plist */; };
+		8CC8896B25E55F6E00B01434 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8896A25E55F6E00B01434 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8CAF029C25E55253006980BE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8CAF029F25E55261006980BE /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		8CC8896325E55BA200B01434 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8CC8896A25E55F6E00B01434 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				8C59866D25E4B62F005A6F74 /* Assets.xcassets */,
 				8CC8896325E55BA200B01434 /* GoogleService-Info.plist */,
 				8C59867225E4B62F005A6F74 /* Info.plist */,
+				8CC8896D25E55F7500B01434 /* Helper */,
 				8C59867925E4B64D005A6F74 /* Supporting Files */,
 				8C59867B25E4B659005A6F74 /* View Controllers */,
 				8C59867E25E4B66E005A6F74 /* Story Boards */,
@@ -113,6 +116,14 @@
 				8C59868325E4C399005A6F74 /* TabBarController.storyboard */,
 			);
 			path = "Story Boards";
+			sourceTree = "<group>";
+		};
+		8CC8896D25E55F7500B01434 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8CC8896A25E55F6E00B01434 /* Utilities.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		C02FB84687626E7897BA9083 /* Pods */ = {
@@ -243,6 +254,7 @@
 				8C59866525E4B628005A6F74 /* AppDelegate.swift in Sources */,
 				8CAF02A025E55261006980BE /* RegisterVC.swift in Sources */,
 				8C59866725E4B628005A6F74 /* SceneDelegate.swift in Sources */,
+				8CC8896B25E55F6E00B01434 /* Utilities.swift in Sources */,
 				8CAF029D25E55253006980BE /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

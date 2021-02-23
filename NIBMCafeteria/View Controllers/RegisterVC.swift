@@ -10,47 +10,52 @@ import Firebase
 
 class RegisterVC: UIViewController {
     
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
     
-    func loginUser(){
-        // TODO: Validate Text Fields
+    func registerUser(){
         
-        // Create cleaned versions of the text field
+        // Create cleaned versions of the data
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let phone = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        // Signing in the user
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+        // Create the user
+        Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
             
-            if error != nil {
-                print("Error")
-                //                // Couldn't sign in
-                //                self.errorLabel.text = error!.localizedDescription
-                //                self.errorLabel.alpha = 1
+            // Check for errors
+            if err != nil {
+                
+                
             }
             else {
                 
-                print("Logged In Succefully")
-                //                let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-                //
-                //                self.view.window?.rootViewController = homeViewController
-                //                self.view.window?.makeKeyAndVisible()
+                // User was created successfully, now store the first name and last name
+                let db = Firestore.firestore()
+                
+                db.collection("users").addDocument(data: ["email":email, "phone":phone,"password":password, "uid": result!.user.uid ]) { (error) in
+                    
+                    if error != nil {
+                    }
+                }
+                print("succefuly added")
             }
+            
         }
     }
     
     
-    @IBAction func login(_ sender: Any) {
-        loginUser()
+    @IBAction func registerAUser(_ sender: Any) {
+        registerUser()
     }
-    
-    
     
     
 }
