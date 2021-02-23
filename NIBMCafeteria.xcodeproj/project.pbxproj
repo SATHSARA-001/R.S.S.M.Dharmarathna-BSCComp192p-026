@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		8C59866525E4B628005A6F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59866425E4B628005A6F74 /* AppDelegate.swift */; };
 		8C59866725E4B628005A6F74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59866625E4B628005A6F74 /* SceneDelegate.swift */; };
-		8C59866925E4B628005A6F74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59866825E4B628005A6F74 /* ViewController.swift */; };
 		8C59866C25E4B628005A6F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59866A25E4B628005A6F74 /* Main.storyboard */; };
 		8C59866E25E4B62F005A6F74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C59866D25E4B62F005A6F74 /* Assets.xcassets */; };
 		8C59867125E4B62F005A6F74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59866F25E4B62F005A6F74 /* LaunchScreen.storyboard */; };
 		8C59868425E4C399005A6F74 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59868325E4C399005A6F74 /* TabBarController.storyboard */; };
+		8CAF029D25E55253006980BE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF029C25E55253006980BE /* LoginVC.swift */; };
+		8CAF02A025E55261006980BE /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF029F25E55261006980BE /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C59866125E4B628005A6F74 /* NIBMCafeteria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NIBMCafeteria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C59866425E4B628005A6F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C59866625E4B628005A6F74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8C59866825E4B628005A6F74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C59866B25E4B628005A6F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C59866D25E4B62F005A6F74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C59867025E4B62F005A6F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C59867225E4B62F005A6F74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C59868325E4C399005A6F74 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
+		8CAF029C25E55253006980BE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		8CAF029F25E55261006980BE /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,8 @@
 		8C59867B25E4B659005A6F74 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8C59866825E4B628005A6F74 /* ViewController.swift */,
+				8CAF029C25E55253006980BE /* LoginVC.swift */,
+				8CAF029F25E55261006980BE /* RegisterVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -165,9 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C59866925E4B628005A6F74 /* ViewController.swift in Sources */,
 				8C59866525E4B628005A6F74 /* AppDelegate.swift in Sources */,
+				8CAF02A025E55261006980BE /* RegisterVC.swift in Sources */,
 				8C59866725E4B628005A6F74 /* SceneDelegate.swift in Sources */,
+				8CAF029D25E55253006980BE /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
