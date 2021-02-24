@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E867C75FB349CF30DEE35FB /* Pods_NIBMCafeteria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07617FF86B23BE39632F1965 /* Pods_NIBMCafeteria.framework */; };
+		8C046C5C25E6A352001F2CA9 /* CustomComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C046C5B25E6A352001F2CA9 /* CustomComponents.swift */; };
 		8C59866525E4B628005A6F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59866425E4B628005A6F74 /* AppDelegate.swift */; };
 		8C59866725E4B628005A6F74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59866625E4B628005A6F74 /* SceneDelegate.swift */; };
 		8C59866C25E4B628005A6F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59866A25E4B628005A6F74 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		07617FF86B23BE39632F1965 /* Pods_NIBMCafeteria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBMCafeteria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B18C723D54391472F2DAE4 /* Pods-NIBMCafeteria.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBMCafeteria.debug.xcconfig"; path = "Target Support Files/Pods-NIBMCafeteria/Pods-NIBMCafeteria.debug.xcconfig"; sourceTree = "<group>"; };
 		1149C2DDA9F4792E2CE89DBB /* Pods-NIBMCafeteria.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBMCafeteria.release.xcconfig"; path = "Target Support Files/Pods-NIBMCafeteria/Pods-NIBMCafeteria.release.xcconfig"; sourceTree = "<group>"; };
+		8C046C5B25E6A352001F2CA9 /* CustomComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComponents.swift; sourceTree = "<group>"; };
 		8C59866125E4B628005A6F74 /* NIBMCafeteria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NIBMCafeteria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C59866425E4B628005A6F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C59866625E4B628005A6F74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				8CC8897025E5F97200B01434 /* AlertProvider.swift */,
 				8CC8897325E5FA4F00B01434 /* Localizator.swift */,
 				8CC8896A25E55F6E00B01434 /* Utilities.swift */,
+				8C046C5B25E6A352001F2CA9 /* CustomComponents.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				8CC8897425E5FA4F00B01434 /* Localizator.swift in Sources */,
 				8CC8897125E5F97200B01434 /* AlertProvider.swift in Sources */,
 				8CC8897B25E60F0A00B01434 /* ResetPasswordVC.swift in Sources */,
+				8C046C5C25E6A352001F2CA9 /* CustomComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
