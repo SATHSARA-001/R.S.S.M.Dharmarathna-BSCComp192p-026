@@ -34,7 +34,6 @@ class RegisterVC: UIViewController {
             // Check for errors
             if err != nil {
                 
-                
             }
             else {
                 
