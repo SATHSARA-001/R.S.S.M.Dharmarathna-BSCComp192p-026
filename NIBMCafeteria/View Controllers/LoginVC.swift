@@ -34,8 +34,7 @@ class LoginVC: UIViewController {
                 
                 AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: error?.localizedDescription ?? "", actions: [okAction], completion: { action in
                     if action.title == .Ok {
-                        self.emailTextField.text = ""
-                        self.passwordTextField.text = ""
+                        
                     } else {
                         // Will dismiss alertView by default
                     }
