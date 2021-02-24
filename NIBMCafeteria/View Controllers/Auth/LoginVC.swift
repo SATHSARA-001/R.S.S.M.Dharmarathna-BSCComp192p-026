@@ -45,6 +45,9 @@ class LoginVC: UIViewController {
                 
                 AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: "Loggin Succefully", actions: [okAction], completion: { action in
                     if action.title == .Ok {
+                        
+                        
+                        
                         self.emailTextField.text = ""
                         self.passwordTextField.text = ""
                     } else {
