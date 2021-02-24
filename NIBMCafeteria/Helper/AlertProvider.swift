@@ -1,6 +1,6 @@
 //
 //  AlertProvider.swift
-//  Copyright © 2019 Elegant Media Pvt Ltd. All rights reserved.
+//  Copyright © 2019 Sathsara Maduranga. All rights reserved.
 //
 
 import Foundation

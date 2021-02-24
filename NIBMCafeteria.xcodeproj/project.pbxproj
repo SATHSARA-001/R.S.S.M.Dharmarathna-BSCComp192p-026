@@ -20,6 +20,7 @@
 		8CC8896B25E55F6E00B01434 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8896A25E55F6E00B01434 /* Utilities.swift */; };
 		8CC8897125E5F97200B01434 /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8897025E5F97200B01434 /* AlertProvider.swift */; };
 		8CC8897425E5FA4F00B01434 /* Localizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8897325E5FA4F00B01434 /* Localizator.swift */; };
+		8CC8897B25E60F0A00B01434 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8897A25E60F0A00B01434 /* ResetPasswordVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8CC8896A25E55F6E00B01434 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8CC8897025E5F97200B01434 /* AlertProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
 		8CC8897325E5FA4F00B01434 /* Localizator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizator.swift; sourceTree = "<group>"; };
+		8CC8897A25E60F0A00B01434 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				8CAF029C25E55253006980BE /* LoginVC.swift */,
 				8CAF029F25E55261006980BE /* RegisterVC.swift */,
+				8CC8897A25E60F0A00B01434 /* ResetPasswordVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				8CAF029D25E55253006980BE /* LoginVC.swift in Sources */,
 				8CC8897425E5FA4F00B01434 /* Localizator.swift in Sources */,
 				8CC8897125E5F97200B01434 /* AlertProvider.swift in Sources */,
+				8CC8897B25E60F0A00B01434 /* ResetPasswordVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

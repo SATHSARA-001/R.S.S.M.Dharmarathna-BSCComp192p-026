@@ -2,7 +2,7 @@
 //  RegisterVC.swift
 //  NIBMCafeteria
 //
-//  Created by Elegant Media on 2021-02-23.
+//  Created by Sathsara Maduranga on 2021-02-23.
 //
 
 import UIKit

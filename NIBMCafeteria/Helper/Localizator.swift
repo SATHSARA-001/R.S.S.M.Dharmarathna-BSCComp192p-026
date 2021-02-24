@@ -1,6 +1,6 @@
 //
 //  Localizator.swift
-//  Copyright © 2019 Elegant Media Pvt Ltd. All rights reserved.
+//  Copyright © 2019 Sathsara Maduranga. All rights reserved.
 //
 
 import Foundation
@@ -17,16 +17,10 @@ extension String {
     
     // Navigation bar titles
     
-    // Loader messages
-    static let Login = NSLocalizedString("Login...", comment: "")
-    static let Registering = NSLocalizedString("Registering...", comment: "")
-    static let Logout = NSLocalizedString("Logout...", comment: "")
-    static let Loading = NSLocalizedString("Loading...", comment: "")
+
     
     // File extensions
-    static let PDF = NSLocalizedString("pdf", comment: "")
-    static let HTML = NSLocalizedString("html", comment: "")
-    static let DOCX = NSLocalizedString("docx", comment: "")
+
     static let PNG = NSLocalizedString("png", comment: "")
     
     
@@ -151,30 +145,7 @@ extension String {
     
     // ViewControllers
     static let RegisterVC = NSLocalizedString("RegisterVC", comment: "")
-    static let LoginVc = NSLocalizedString("LoginVc", comment: "")
-    static let RetrievePasswordVC = NSLocalizedString("RetrievePasswordVC", comment: "")
-    static let MainVC = NSLocalizedString("MainVC", comment: "")
-    static let ConversationsVC = NSLocalizedString("ConversationsVC", comment: "")
-    static let MessagesVC = NSLocalizedString("MessagesVC", comment: "")
-    static let UsersVC = NSLocalizedString("UsersVC", comment: "")
-    static let MediaViewerVC = NSLocalizedString("MediaViewerVC", comment: "")
-    static let HistoryVC = NSLocalizedString("HistoryVC", comment: "")
-    static let PayementMethodVC = NSLocalizedString("PayementMethodVC", comment: "")
-    static let StripAccountVC = NSLocalizedString("StripAccountVC", comment: "")
-    static let PaymentGetwayVC = NSLocalizedString("PaymentGetwayVC", comment: "")
-    static let ChoosePlanVC = NSLocalizedString("ChoosePlanVC", comment: "")
-    static let LocationAccesssVC = NSLocalizedString("LocationAccessVC", comment: "")
 
-
-    
-
-    
-
-    
-
-    
-
-    
 
     // No data messages
     
