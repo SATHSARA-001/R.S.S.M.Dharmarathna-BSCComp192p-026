@@ -6,15 +6,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--FoodNC-->
+        <scene sceneID="yM1-V8-tGi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="FoodNC" id="OI3-Wv-oPr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="RCI-d2-xkS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0G-6M-vFK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-878" y="384"/>
+        </scene>
+        <!--OrderNC-->
+        <scene sceneID="Ybo-7u-Oy7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="OrderNC" id="oyY-JZ-Sm8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="4aP-L6-ufg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iZ5-XH-2e4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-451" y="384"/>
+        </scene>
+        <!--AccountNC-->
+        <scene sceneID="if7-fa-a2y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="AccountNC" id="M0Z-M5-5F6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="2AN-Fb-C2X"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iEQ-DN-ZAa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-129" y="394"/>
+        </scene>
+        <!--MainTBC-->
         <scene sceneID="i4U-4y-siJ">
             <objects>
-                <tabBarController id="KxE-ha-OL3" sceneMemberID="viewController">
+                <tabBarController id="KxE-ha-OL3" customClass="MainTBC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="diH-KR-zRg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <connections>
+                        <segue destination="OI3-Wv-oPr" kind="relationship" relationship="viewControllers" id="bEv-Av-rqL"/>
+                        <segue destination="oyY-JZ-Sm8" kind="relationship" relationship="viewControllers" id="d3Z-1n-c4n"/>
+                        <segue destination="M0Z-M5-5F6" kind="relationship" relationship="viewControllers" id="urC-MI-N54"/>
+                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5DY-Pr-go7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
