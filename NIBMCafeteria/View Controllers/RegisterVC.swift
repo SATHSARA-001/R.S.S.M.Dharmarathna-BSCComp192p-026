@@ -33,7 +33,17 @@ class RegisterVC: UIViewController {
             
             // Check for errors
             if err != nil {
+                let okAction = AlertAction(title: .Ok)
                 
+                AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: err?.localizedDescription ?? "", actions: [okAction], completion: { action in
+                    if action.title == .Ok {
+                        self.emailTextField.text = ""
+                        self.phoneTextField.text = ""
+                        self.passwordTextField.text = ""
+                    } else {
+                        // Will dismiss alertView by default
+                    }
+                })
             }
             else {
                 
@@ -43,9 +53,28 @@ class RegisterVC: UIViewController {
                 db.collection("users").addDocument(data: ["email":email, "phone":phone,"password":password, "uid": result!.user.uid ]) { (error) in
                     
                     if error != nil {
+                        let okAction = AlertAction(title: .Ok)
+                        
+                        AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: error?.localizedDescription ?? "", actions: [okAction], completion: { action in
+                            if action.title == .Ok {
+                              
+                            } else {
+                                // Will dismiss alertView by default
+                            }
+                        })
                     }
                 }
-                print("succefuly added")
+                let okAction = AlertAction(title: .Ok)
+                
+                AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: "Registered Succesfully", actions: [okAction], completion: { action in
+                    if action.title == .Ok {
+                        self.emailTextField.text = ""
+                        self.passwordTextField.text = ""
+                    } else {
+                        // Will dismiss alertView by default
+                    }
+                })
+                
             }
             
         }
