@@ -112,7 +112,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DhX-eu-e9O">
-                                                <rect key="frame" x="20" y="166" width="374" height="442"/>
+                                                <rect key="frame" x="20" y="216" width="374" height="342"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBH-yl-KTb">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="130"/>
@@ -153,17 +153,6 @@
                                                         <connections>
                                                             <action selector="registerAUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vmp-Ua-zNC"/>
                                                         </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjT-Gs-Ja5">
-                                                        <rect key="frame" x="0.0" y="362" width="374" height="30"/>
-                                                        <state key="normal" title="Login?"/>
-                                                        <connections>
-                                                            <segue destination="ylu-bw-HCF" kind="show" id="vp4-T3-LUU"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMC-yv-TlP">
-                                                        <rect key="frame" x="0.0" y="412" width="374" height="30"/>
-                                                        <state key="normal" title="Forget Password"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -210,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-710.14492753623199" y="1401.5625"/>
+            <point key="canvasLocation" x="-6" y="1402"/>
         </scene>
         <!--Login-->
         <scene sceneID="7EV-MS-87O">
@@ -267,14 +256,17 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-Ox-XwI">
                                                         <rect key="frame" x="0.0" y="308" width="374" height="30"/>
-                                                        <state key="normal" title="Register"/>
+                                                        <state key="normal" title="Register ?"/>
+                                                        <connections>
+                                                            <segue destination="BYZ-38-t0r" kind="show" id="Pqf-39-fj9"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCP-Xd-Hd6">
                                                         <rect key="frame" x="0.0" y="358" width="374" height="30"/>
                                                         <state key="normal" title="Forget Password"/>
                                                         <connections>
                                                             <action selector="resetPassword:" destination="ylu-bw-HCF" eventType="touchUpInside" id="chx-4A-b7Q"/>
-                                                            <segue destination="HiE-ea-asF" kind="show" id="FQR-P5-Gt0"/>
+                                                            <segue destination="HiE-ea-asF" kind="show" id="jvw-F5-Zhr"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -321,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OdR-lq-tsB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="78" y="1390"/>
+            <point key="canvasLocation" x="-768" y="1402"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lYd-TY-V82">
@@ -334,7 +326,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="93W-qU-1qf"/>
+                        <segue destination="ylu-bw-HCF" kind="relationship" relationship="rootViewController" id="hUa-Tj-NyY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6p-uE-CCq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -430,7 +422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBX-Zz-LFE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="922" y="1390"/>
+            <point key="canvasLocation" x="-7" y="2140"/>
         </scene>
     </scenes>
     <resources>
