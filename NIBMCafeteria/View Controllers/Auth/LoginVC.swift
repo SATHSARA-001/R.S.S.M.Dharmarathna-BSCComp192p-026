@@ -46,7 +46,10 @@ class LoginVC: UIViewController {
                 AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: "Loggin Succefully", actions: [okAction], completion: { action in
                     if action.title == .Ok {
                         
-                        
+                        let mainstoryboard = UIStoryboard(name: "TabBarController", bundle: nil)
+                        let viewController = mainstoryboard.instantiateViewController(withIdentifier: "MainTBC") as! UITabBarController
+                        self.view.window?.rootViewController = viewController
+                        self.view.window?.makeKeyAndVisible()
                         
                         self.emailTextField.text = ""
                         self.passwordTextField.text = ""
