@@ -10,18 +10,19 @@ import Firebase
 
 class RegisterVC: UIViewController {
     
+    //MARK:Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
+    //MARK:Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    //MARK:Functions
     func registerUser(){
-        
         // Create cleaned versions of the data
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let phone = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -57,7 +58,7 @@ class RegisterVC: UIViewController {
                         
                         AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: error?.localizedDescription ?? "", actions: [okAction], completion: { action in
                             if action.title == .Ok {
-                              
+                                
                             } else {
                                 // Will dismiss alertView by default
                             }
@@ -80,7 +81,7 @@ class RegisterVC: UIViewController {
         }
     }
     
-    
+    //MARK:Actions
     @IBAction func registerAUser(_ sender: Any) {
         registerUser()
     }

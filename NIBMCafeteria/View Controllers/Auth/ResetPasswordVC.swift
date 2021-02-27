@@ -10,14 +10,17 @@ import Firebase
 
 class ResetPasswordVC: UIViewController {
     
+    //MARK:Outlets
     @IBOutlet weak var emailTextField: UITextField!
     
+    //MARK:Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
     }
-    
+
+    //MARK:Functions
     func resetMyPassword(){
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         Auth.auth().sendPasswordReset(withEmail: email ) { (error) in
@@ -47,6 +50,7 @@ class ResetPasswordVC: UIViewController {
         }
     }
     
+    //MARK:Actions
     @IBAction func resetMyPassword(_ sender: Any) {
         
         resetMyPassword()

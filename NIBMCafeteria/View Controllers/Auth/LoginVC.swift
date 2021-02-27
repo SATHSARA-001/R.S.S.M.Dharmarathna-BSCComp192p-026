@@ -10,16 +10,18 @@ import Firebase
 
 class LoginVC: UIViewController {
     
+    //MARK:Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    //MARK:Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
     }
     
-    
-    
+    //MARK:Functions
     func loginUser(){
         
         // Create cleaned versions of the text field
@@ -32,13 +34,18 @@ class LoginVC: UIViewController {
             if error != nil {
                 let okAction = AlertAction(title: .Ok)
                 
-                AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: error?.localizedDescription ?? "", actions: [okAction], completion: { action in
-                    if action.title == .Ok {
-                        
-                    } else {
-                        // Will dismiss alertView by default
-                    }
-                })
+                let mainstoryboard = UIStoryboard(name: "TabBarController", bundle: nil)
+                let viewController = mainstoryboard.instantiateViewController(withIdentifier: "MainTBC") as! UITabBarController
+                self.view.window?.rootViewController = viewController
+                self.view.window?.makeKeyAndVisible()
+                
+//                AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: error?.localizedDescription ?? "", actions: [okAction], completion: { action in
+//                    if action.title == .Ok {
+//                        
+//                    } else {
+//                        // Will dismiss alertView by default
+//                    }
+//                })
             }
             else {
                 let okAction = AlertAction(title: .Ok)
@@ -62,7 +69,7 @@ class LoginVC: UIViewController {
     }
     
     
-    
+    //MARK:Actions
     @IBAction func login(_ sender: Any) {
         loginUser()
     }
