@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
+        <!--FoodVC-->
         <scene sceneID="dsA-ZF-wHi">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="Dj9-dl-uWZ" customClass="HomeVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodVC" id="Dj9-dl-uWZ" customClass="FoodVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R32-7v-cPM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="1791.304347826087" y="77.678571428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--OrderVC-->
         <scene sceneID="Lr8-xl-QDc">
             <objects>
-                <viewController id="msZ-Az-E5U" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderVC" id="msZ-Az-E5U" customClass="OrderVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8E2-ad-giW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,11 +190,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RoC-lN-Y1k">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R4a-rG-IUb">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R4a-rG-IUb">
+                                                <rect key="frame" x="0.0" y="20" width="414" height="705"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="258" id="cJk-su-nBX">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrderCell" rowHeight="258" id="cJk-su-nBX" customClass="OrderCell" customModule="NIBMCafeteria" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="414" height="258"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJk-su-nBX" id="9jZ-Xi-jJT">
@@ -202,19 +202,19 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gli-du-LUR">
-                                                                    <rect key="frame" x="5" y="5" width="404" height="248"/>
+                                                                    <rect key="frame" x="10" y="25" width="394" height="228"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="171" translatesAutoresizingMaskIntoConstraints="NO" id="hE8-bd-kIf">
-                                                                            <rect key="frame" x="10" y="20" width="384" height="208"/>
+                                                                            <rect key="frame" x="10" y="40" width="374" height="148"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7k2-99-YoO">
-                                                                                    <rect key="frame" x="0.0" y="94" width="133.5" height="20.5"/>
+                                                                                    <rect key="frame" x="0.0" y="64" width="123.5" height="20.5"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13min Left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mN-iO-GiM">
-                                                                                    <rect key="frame" x="304.5" y="94" width="79.5" height="20.5"/>
+                                                                                    <rect key="frame" x="294.5" y="64" width="79.5" height="20.5"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -224,20 +224,23 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="hE8-bd-kIf" firstAttribute="top" secondItem="gli-du-LUR" secondAttribute="top" constant="20" id="BXs-W6-2WK"/>
+                                                                        <constraint firstItem="hE8-bd-kIf" firstAttribute="top" secondItem="gli-du-LUR" secondAttribute="top" constant="40" id="BXs-W6-2WK"/>
                                                                         <constraint firstAttribute="trailing" secondItem="hE8-bd-kIf" secondAttribute="trailing" constant="10" id="Eu1-4t-Hhd"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="hE8-bd-kIf" secondAttribute="bottom" constant="20" id="fit-IW-XoS"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="hE8-bd-kIf" secondAttribute="bottom" constant="40" id="fit-IW-XoS"/>
                                                                         <constraint firstItem="hE8-bd-kIf" firstAttribute="leading" secondItem="gli-du-LUR" secondAttribute="leading" constant="10" id="j71-HH-WhN"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="gli-du-LUR" firstAttribute="top" secondItem="9jZ-Xi-jJT" secondAttribute="top" constant="5" id="1iD-hx-bLv"/>
-                                                                <constraint firstAttribute="trailing" secondItem="gli-du-LUR" secondAttribute="trailing" constant="5" id="StZ-oy-Bgz"/>
-                                                                <constraint firstItem="gli-du-LUR" firstAttribute="leading" secondItem="9jZ-Xi-jJT" secondAttribute="leading" constant="5" id="Ubs-43-Q8V"/>
+                                                                <constraint firstItem="gli-du-LUR" firstAttribute="top" secondItem="9jZ-Xi-jJT" secondAttribute="top" constant="25" id="1iD-hx-bLv"/>
+                                                                <constraint firstAttribute="trailing" secondItem="gli-du-LUR" secondAttribute="trailing" constant="10" id="StZ-oy-Bgz"/>
+                                                                <constraint firstItem="gli-du-LUR" firstAttribute="leading" secondItem="9jZ-Xi-jJT" secondAttribute="leading" constant="10" id="Ubs-43-Q8V"/>
                                                                 <constraint firstAttribute="bottom" secondItem="gli-du-LUR" secondAttribute="bottom" constant="5" id="eEh-VA-2sn"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="shadowView" destination="gli-du-LUR" id="Kjm-yt-AeU"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
@@ -246,7 +249,7 @@
                                         <constraints>
                                             <constraint firstItem="R4a-rG-IUb" firstAttribute="leading" secondItem="RoC-lN-Y1k" secondAttribute="leading" id="0Af-x9-XFY"/>
                                             <constraint firstAttribute="bottom" secondItem="R4a-rG-IUb" secondAttribute="bottom" id="D9m-LR-Sd4"/>
-                                            <constraint firstItem="R4a-rG-IUb" firstAttribute="top" secondItem="RoC-lN-Y1k" secondAttribute="top" id="FSL-Qc-TSY"/>
+                                            <constraint firstItem="R4a-rG-IUb" firstAttribute="top" secondItem="RoC-lN-Y1k" secondAttribute="top" constant="20" id="FSL-Qc-TSY"/>
                                             <constraint firstAttribute="trailing" secondItem="R4a-rG-IUb" secondAttribute="trailing" id="cfw-hc-Cun"/>
                                         </constraints>
                                     </view>
@@ -273,15 +276,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wkG-bJ-Fdu"/>
+                    <connections>
+                        <outlet property="orderTbl" destination="R4a-rG-IUb" id="Mju-Wn-bcp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knw-o5-IQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1011.5942028985507" y="829.6875"/>
         </scene>
-        <!--View Controller-->
+        <!--AccountVC-->
         <scene sceneID="66c-qq-z7b">
             <objects>
-                <viewController id="x2V-bf-0Go" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountVC" id="x2V-bf-0Go" customClass="AccountVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OpW-HO-Tbo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

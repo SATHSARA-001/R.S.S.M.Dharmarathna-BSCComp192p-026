@@ -16,4 +16,18 @@ class Utilities {
         return passwordTest.evaluate(with: password)
     }
     
+    
+    
+}
+
+
+extension UIView{
+    
+    func addShadow(offSet: CGFloat = 2.0, color: UIColor = .lightGray) {
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOffset = CGSize(width: offSet, height: offSet)
+        self.layer.shadowOpacity = 1
+        self.layer.shouldRasterize = false
+        self.layer.masksToBounds = false
+    }
 }
