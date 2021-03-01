@@ -30,6 +30,7 @@
 		8CC8897B25E60F0A00B01434 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8897A25E60F0A00B01434 /* ResetPasswordVC.swift */; };
 		8CC8897E25E6158C00B01434 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8897D25E6158C00B01434 /* Home.storyboard */; };
 		8CC8898725E616B800B01434 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8898625E616B800B01434 /* MainTBC.swift */; };
+		8CF03DA425ECEFC4007BDFD6 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF03DA325ECEFC4007BDFD6 /* FoodCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		8CC8897A25E60F0A00B01434 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		8CC8897D25E6158C00B01434 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8CC8898625E616B800B01434 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
+		8CF03DA325ECEFC4007BDFD6 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				8C1A89F125ECAC6A0038295E /* FoodVC.swift */,
 				8C1A89FD25ECBDD60038295E /* FoodCategoryCell.swift */,
+				8CF03DA325ECEFC4007BDFD6 /* FoodCell.swift */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				8CC8897B25E60F0A00B01434 /* ResetPasswordVC.swift in Sources */,
 				8C046C5C25E6A352001F2CA9 /* CustomComponents.swift in Sources */,
 				8C1A89F525ECAC780038295E /* OrderVC.swift in Sources */,
+				8CF03DA425ECEFC4007BDFD6 /* FoodCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

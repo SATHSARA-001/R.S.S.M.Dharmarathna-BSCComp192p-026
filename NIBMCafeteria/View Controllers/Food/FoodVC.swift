@@ -10,6 +10,7 @@ import UIKit
 class FoodVC: UIViewController {
 
     @IBOutlet weak var FoodCategoryCV: UICollectionView!
+    @IBOutlet weak var FoodTbl: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +22,19 @@ class FoodVC: UIViewController {
     func setDelegate(){
         FoodCategoryCV.delegate = self
         FoodCategoryCV.dataSource = self
+        FoodTbl.delegate = self
+        FoodTbl.dataSource = self
     }
 
 
 }
 
 extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -37,6 +45,22 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
         return cell
     }
     
+    
+    
+}
+
+extension FoodVC:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell") as! FoodCell
+        cell.configCell()
+        return cell
+    }
     
     
 }
