@@ -10,6 +10,9 @@
 		2E867C75FB349CF30DEE35FB /* Pods_NIBMCafeteria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07617FF86B23BE39632F1965 /* Pods_NIBMCafeteria.framework */; };
 		8C046C5C25E6A352001F2CA9 /* CustomComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C046C5B25E6A352001F2CA9 /* CustomComponents.swift */; };
 		8C046C5F25E6A92B001F2CA9 /* RequestLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C046C5E25E6A92B001F2CA9 /* RequestLocationVC.swift */; };
+		8C1A89F225ECAC6A0038295E /* FoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1A89F125ECAC6A0038295E /* FoodVC.swift */; };
+		8C1A89F525ECAC780038295E /* OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1A89F425ECAC780038295E /* OrderVC.swift */; };
+		8C1A89F825ECAC8F0038295E /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1A89F725ECAC8F0038295E /* AccountVC.swift */; };
 		8C59866525E4B628005A6F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59866425E4B628005A6F74 /* AppDelegate.swift */; };
 		8C59866725E4B628005A6F74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59866625E4B628005A6F74 /* SceneDelegate.swift */; };
 		8C59866C25E4B628005A6F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59866A25E4B628005A6F74 /* Main.storyboard */; };
@@ -24,7 +27,6 @@
 		8CC8897425E5FA4F00B01434 /* Localizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8897325E5FA4F00B01434 /* Localizator.swift */; };
 		8CC8897B25E60F0A00B01434 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8897A25E60F0A00B01434 /* ResetPasswordVC.swift */; };
 		8CC8897E25E6158C00B01434 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8897D25E6158C00B01434 /* Home.storyboard */; };
-		8CC8898125E615EB00B01434 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8898025E615EB00B01434 /* HomeVC.swift */; };
 		8CC8898725E616B800B01434 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8898625E616B800B01434 /* MainTBC.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,9 @@
 		1149C2DDA9F4792E2CE89DBB /* Pods-NIBMCafeteria.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBMCafeteria.release.xcconfig"; path = "Target Support Files/Pods-NIBMCafeteria/Pods-NIBMCafeteria.release.xcconfig"; sourceTree = "<group>"; };
 		8C046C5B25E6A352001F2CA9 /* CustomComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComponents.swift; sourceTree = "<group>"; };
 		8C046C5E25E6A92B001F2CA9 /* RequestLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLocationVC.swift; sourceTree = "<group>"; };
+		8C1A89F125ECAC6A0038295E /* FoodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodVC.swift; sourceTree = "<group>"; };
+		8C1A89F425ECAC780038295E /* OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVC.swift; sourceTree = "<group>"; };
+		8C1A89F725ECAC8F0038295E /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		8C59866125E4B628005A6F74 /* NIBMCafeteria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NIBMCafeteria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C59866425E4B628005A6F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C59866625E4B628005A6F74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +55,6 @@
 		8CC8897325E5FA4F00B01434 /* Localizator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizator.swift; sourceTree = "<group>"; };
 		8CC8897A25E60F0A00B01434 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		8CC8897D25E6158C00B01434 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		8CC8898025E615EB00B01434 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8CC8898625E616B800B01434 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +76,30 @@
 				07617FF86B23BE39632F1965 /* Pods_NIBMCafeteria.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8C1A89EB25ECA5280038295E /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				8C1A89F425ECAC780038295E /* OrderVC.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		8C1A89EE25ECA59A0038295E /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				8C1A89F125ECAC6A0038295E /* FoodVC.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		8C1A89F025ECAC4F0038295E /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				8C1A89F725ECAC8F0038295E /* AccountVC.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		8C59865825E4B628005A6F74 = {
@@ -119,7 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				8CC8898325E615FC00B01434 /* Auth */,
-				8CC8898425E6160500B01434 /* Home */,
+				8C1A89EE25ECA59A0038295E /* Food */,
+				8C1A89EB25ECA5280038295E /* Order */,
+				8C1A89F025ECAC4F0038295E /* Account */,
 				8CC8898925E616BD00B01434 /* TBC */,
 			);
 			path = "View Controllers";
@@ -156,14 +186,6 @@
 				8C046C5E25E6A92B001F2CA9 /* RequestLocationVC.swift */,
 			);
 			path = Auth;
-			sourceTree = "<group>";
-		};
-		8CC8898425E6160500B01434 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				8CC8898025E615EB00B01434 /* HomeVC.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		8CC8898925E616BD00B01434 /* TBC */ = {
@@ -304,14 +326,16 @@
 				8C59866525E4B628005A6F74 /* AppDelegate.swift in Sources */,
 				8CAF02A025E55261006980BE /* RegisterVC.swift in Sources */,
 				8C59866725E4B628005A6F74 /* SceneDelegate.swift in Sources */,
-				8CC8898125E615EB00B01434 /* HomeVC.swift in Sources */,
 				8CC8896B25E55F6E00B01434 /* Utilities.swift in Sources */,
 				8CAF029D25E55253006980BE /* LoginVC.swift in Sources */,
 				8CC8897425E5FA4F00B01434 /* Localizator.swift in Sources */,
 				8CC8897125E5F97200B01434 /* AlertProvider.swift in Sources */,
+				8C1A89F225ECAC6A0038295E /* FoodVC.swift in Sources */,
 				8C046C5F25E6A92B001F2CA9 /* RequestLocationVC.swift in Sources */,
+				8C1A89F825ECAC8F0038295E /* AccountVC.swift in Sources */,
 				8CC8897B25E60F0A00B01434 /* ResetPasswordVC.swift in Sources */,
 				8C046C5C25E6A352001F2CA9 /* CustomComponents.swift in Sources */,
+				8C1A89F525ECAC780038295E /* OrderVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
