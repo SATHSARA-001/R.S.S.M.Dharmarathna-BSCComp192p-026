@@ -6,16 +6,25 @@
 //
 
 import UIKit
+import Firebase
 
-class FoodVC: UIViewController {
 
+class FoodVC: UIViewController  {
+    
     @IBOutlet weak var FoodCategoryCV: UICollectionView!
     @IBOutlet weak var FoodTbl: UITableView!
+    @IBOutlet weak var cartTbl: UITableView!
+    
+    let db = Firestore.firestore()
+    var foods : [category] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         setDelegate()
-
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -24,9 +33,25 @@ class FoodVC: UIViewController {
         FoodCategoryCV.dataSource = self
         FoodTbl.delegate = self
         FoodTbl.dataSource = self
+        cartTbl.delegate = self
+        cartTbl.dataSource = self
     }
-
-
+    
+    func getData(){
+        
+        db.collection("categories").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    let  data = document.data()
+                    print(data["name"])
+                }
+            }
+        }
+    }
+    
 }
 
 extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
@@ -50,17 +75,54 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
 }
 
 extension FoodVC:UITableViewDelegate,UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        switch tableView {
+        case FoodTbl :
+            return 3
+        case cartTbl :
+            return 2
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell") as! FoodCell
-        cell.configCell()
-        return cell
+        switch tableView {
+        case FoodTbl :
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell") as! FoodCell
+            cell.configCell()
+            return cell
+            
+        case cartTbl :
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell") as! CartCell
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell") as! CartCell
+            return cell
+        }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch tableView {
+        case FoodTbl:
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let targetVC = storyboard.instantiateViewController(withIdentifier: "ViewFoodVC") as!ViewFoodVC
+            targetVC.delegate = self
+            self.navigationController?.pushViewController(targetVC, animated: true)
+        default:
+            print("")
+        }
+        
+    }
+}
+
+extension FoodVC:addItemDelegate{
+    func itemAddedToCart() {
+        print("added to cart")
+    }
     
 }
