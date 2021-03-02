@@ -21,6 +21,8 @@ class FoodVC: UIViewController  {
     let db = Firestore.firestore()
     
     var cart : [Cart] = []
+    var add:Double = 0
+
     
     
     override func viewDidLoad() {
@@ -156,14 +158,17 @@ extension FoodVC:addItemDelegate{
         }
         
         
-        let total = cart.map({(format:String(),$0.total)})
+        let total = cart.map({($0.total)})
+
         print(total)
         
-        var add = 0
-        
         for totValue in total {
-            print(totValue)
+            add = (add + totValue!)
         }
+        
+        print(add)
+        let totPrice = "Order Rs. "+(String(add))
+        totalPriceBtn.setTitle(totPrice, for: .normal)
         cartTbl.reloadData()
         print(cart)
     }
