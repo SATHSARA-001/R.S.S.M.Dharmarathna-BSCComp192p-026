@@ -93,6 +93,9 @@
                                                                                                     </constraints>
                                                                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                     <state key="normal" title="Button" image="plus.circle" catalog="system"/>
+                                                                                                    <connections>
+                                                                                                        <action selector="plusAmountOfItems:" destination="mPF-nH-Dvd" eventType="touchUpInside" id="3Xd-uc-iNn"/>
+                                                                                                    </connections>
                                                                                                 </button>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWj-r8-9Yz">
                                                                                                     <rect key="frame" x="23" y="1" width="22" height="20.5"/>
@@ -111,6 +114,9 @@
                                                                                                     </constraints>
                                                                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                     <state key="normal" title="Button" image="minus.circle" catalog="system"/>
+                                                                                                    <connections>
+                                                                                                        <action selector="minAmountOfItems:" destination="mPF-nH-Dvd" eventType="touchUpInside" id="37G-JE-ckG"/>
+                                                                                                    </connections>
                                                                                                 </button>
                                                                                             </subviews>
                                                                                         </stackView>
@@ -142,6 +148,13 @@
                                                                         <constraint firstItem="vX3-Gn-tmo" firstAttribute="leading" secondItem="V00-PF-AaX" secondAttribute="leading" id="gw9-M2-LMD"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="amtLbl" destination="dWj-r8-9Yz" id="Auc-NJ-0wB"/>
+                                                                    <outlet property="foodNameLbl" destination="oJL-TQ-W2N" id="jNd-SA-Pnj"/>
+                                                                    <outlet property="minBtn" destination="lKP-Q0-SC9" id="dee-24-vWQ"/>
+                                                                    <outlet property="plusBtn" destination="ulx-31-IQV" id="9AW-2L-A7b"/>
+                                                                    <outlet property="priceAmtLbl" destination="1LU-j4-V2J" id="fEb-26-LaW"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
@@ -325,7 +338,10 @@
                     <connections>
                         <outlet property="FoodCategoryCV" destination="z6x-OB-QFP" id="6Ph-Th-fII"/>
                         <outlet property="FoodTbl" destination="aHm-S0-9Lv" id="okD-bz-tbO"/>
+                        <outlet property="carTitleView" destination="oVC-PO-m6w" id="1q2-Zh-kHX"/>
                         <outlet property="cartTbl" destination="QG2-O5-OAR" id="srl-JP-NB6"/>
+                        <outlet property="noOfItemsLbl" destination="jXe-Ac-fuQ" id="NjZ-NV-WkA"/>
+                        <outlet property="totalPriceBtn" destination="RYJ-On-xkX" id="o9O-ei-yCN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSK-Nd-JOK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -590,6 +606,7 @@
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qpk-s2-9qH">
                                                                                 <rect key="frame" x="0.0" y="1" width="120" height="117.5"/>
+                                                                                <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <color key="tintColor" red="0.20392156859999999" green="0.25098039220000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="120" id="fvG-ej-lX5"/>

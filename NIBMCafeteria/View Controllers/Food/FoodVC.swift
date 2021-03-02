@@ -14,9 +14,13 @@ class FoodVC: UIViewController  {
     @IBOutlet weak var FoodCategoryCV: UICollectionView!
     @IBOutlet weak var FoodTbl: UITableView!
     @IBOutlet weak var cartTbl: UITableView!
+    @IBOutlet weak var carTitleView: UIView!
+    @IBOutlet weak var totalPriceBtn: CustomButton!
+    @IBOutlet weak var noOfItemsLbl: UILabel!
     
     let db = Firestore.firestore()
-    var foods : [category] = []
+    
+    var cart : [Cart] = []
     
     
     override func viewDidLoad() {
@@ -24,8 +28,13 @@ class FoodVC: UIViewController  {
         getData()
         setDelegate()
         
-        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupUI()
+
     }
     
     func setDelegate(){
@@ -35,6 +44,19 @@ class FoodVC: UIViewController  {
         FoodTbl.dataSource = self
         cartTbl.delegate = self
         cartTbl.dataSource = self
+    }
+    
+    func setupUI(){
+        
+        noOfItemsLbl.text = String(cart.count)+" items"
+        if cart.count < 1{
+            carTitleView.isHidden = true
+            cartTbl.isHidden = true
+        }else{
+            carTitleView.isHidden = false
+            cartTbl.isHidden = false
+
+        }
     }
     
     func getData(){
@@ -82,7 +104,7 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
         case FoodTbl :
             return 3
         case cartTbl :
-            return 2
+            return cart.count
         default:
             return 0
         }
@@ -98,6 +120,10 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
             
         case cartTbl :
             let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell") as! CartCell
+            cell.addDelegate = self
+            cell.minDelegate = self
+            cell.configCell(model: cart[indexPath.row])
+            cell.index = indexPath
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell") as! CartCell
@@ -112,6 +138,7 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let targetVC = storyboard.instantiateViewController(withIdentifier: "ViewFoodVC") as!ViewFoodVC
             targetVC.delegate = self
+            targetVC.index = indexPath.row
             self.navigationController?.pushViewController(targetVC, animated: true)
         default:
             print("")
@@ -121,8 +148,48 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
 }
 
 extension FoodVC:addItemDelegate{
-    func itemAddedToCart() {
+    func itemAddedToCart(model: Cart?,index:Int?) {
         print("added to cart")
+        
+        if let cartdate = model {
+            cart.append(cartdate)
+        }
+        
+        
+        let total = cart.map({(format:String(),$0.total)})
+        print(total)
+        
+        var add = 0
+        
+        for totValue in total {
+            print(totValue)
+        }
+        cartTbl.reloadData()
+        print(cart)
     }
     
+  
+}
+
+extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
+    func addAmtItems(amount: Int?, index: IndexPath?) {
+        
+        if amount != nil {
+            cart[index?.row ?? 0].amount = (amount ?? 0) + 1
+        }
+        cartTbl.reloadData()
+    }
+    
+    func minAmtItems(amount: Int?, index: IndexPath?) {
+        
+        if amount != nil {
+            if amount! > 0{
+                cart[index?.row ?? 0].amount = (amount ?? 0) - 1
+            }
+        }
+         
+        cartTbl.reloadData()
+
+    }
+
 }
