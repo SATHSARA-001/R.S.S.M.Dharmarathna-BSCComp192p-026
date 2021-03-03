@@ -186,6 +186,7 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
             let targetVC = storyboard.instantiateViewController(withIdentifier: "ViewFoodVC") as! ViewFoodVC
             targetVC.delegate = self
             targetVC.index = indexPath.row
+            targetVC.foodDetails = filteredFoodList[indexPath.row]
             self.navigationController?.pushViewController(targetVC, animated: true)
         default:
             print("")
@@ -219,19 +220,19 @@ extension FoodVC:addItemDelegate{
 }
 
 extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
-    func addAmtItems(amount: Int?, index: IndexPath?) {
+    func addAmtItems(amount: Double?, index: IndexPath?) {
         
         if amount != nil {
-            cart[index?.row ?? 0].amount = (amount ?? 0) + 1
+            cart[index?.row ?? 0].amount = Double((amount ?? 0) + 1)
         }
         cartTbl.reloadData()
     }
     
-    func minAmtItems(amount: Int?, index: IndexPath?) {
+    func minAmtItems(amount: Double?, index: IndexPath?) {
         
         if amount != nil {
             if amount! > 0{
-                cart[index?.row ?? 0].amount = (amount ?? 0) - 1
+                cart[index?.row ?? 0].amount = Double((amount ?? 0) - 1)
             }
         }
         cartTbl.reloadData()

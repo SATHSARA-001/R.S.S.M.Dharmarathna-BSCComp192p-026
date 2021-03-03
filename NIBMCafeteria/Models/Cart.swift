@@ -13,10 +13,10 @@ struct Cart: Codable {
     
     var foodName: String?
     var foodPrice: Double?
-    var amount : Int?
+    var amount : Double?
     var total: Double?
     
-    public init( foodName: String?,foodPrice: Double?,amount : Int?,total: Double?) {
+    public init( foodName: String?,foodPrice: Double?,amount : Double?,total: Double?) {
         self.foodName = foodName
         self.foodPrice = foodPrice
         self.amount = amount

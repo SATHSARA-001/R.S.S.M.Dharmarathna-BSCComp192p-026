@@ -473,6 +473,13 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descTxt" destination="tIn-eW-sFO" id="PU1-3a-xzK"/>
+                        <outlet property="foodImg" destination="Gul-g5-PdO" id="QBP-7h-0gq"/>
+                        <outlet property="foodNameTxt" destination="1MX-3e-4M0" id="rDh-JS-XTx"/>
+                        <outlet property="offerValueTxt" destination="vo2-ym-Lvh" id="NCb-yz-BOT"/>
+                        <outlet property="priceTxt" destination="lA9-lE-ogu" id="600-gS-EGY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yd0-f8-kBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

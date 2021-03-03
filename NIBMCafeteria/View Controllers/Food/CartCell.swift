@@ -8,11 +8,11 @@
 import UIKit
 
 protocol addItemsAmtDelegate {
-    func addAmtItems(amount:Int?,index:IndexPath?)
+    func addAmtItems(amount:Double?,index:IndexPath?)
 }
 
 protocol minItemsAmtDelegate {
-    func minAmtItems(amount:Int?,index:IndexPath?)
+    func minAmtItems(amount:Double?,index:IndexPath?)
 
 }
 
@@ -47,7 +47,7 @@ class CartCell: UITableViewCell {
         if let data = model {
             foodNameLbl.text = data.foodName
             amtLbl.text = String(data.amount ?? 0)
-            priceAmtLbl.text = String(data.foodPrice ?? 0)
+            priceAmtLbl.text = String(format: "%.0f",data.foodPrice ?? 0)
         }
         
     }
