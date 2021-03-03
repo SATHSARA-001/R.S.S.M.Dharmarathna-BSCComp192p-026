@@ -198,7 +198,7 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
 extension FoodVC:addItemDelegate{
     func itemAddedToCart(model: Cart?,index:Int?) {
         print("added to cart")
-        
+        var add:Double = 0
         if let cartdate = model {
             cart.append(cartdate)
         }
@@ -223,17 +223,49 @@ extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
     func addAmtItems(amount: Int?, index: IndexPath?) {
         
         if amount != nil {
+            
+            var add:Double = 0
+            
+            let addedAmt = Double(cart[index?.row ?? 0].amount ?? 0)
+            let foodPrice = cart[index?.row ?? 0].foodPrice
+            
             cart[index?.row ?? 0].amount = Int(Double((amount ?? 0) + 1))
+            cart[index?.row ?? 0].total =  addedAmt * foodPrice!
+            
+            let total = cart.map({($0.total)})
+            
+            for totValue in total {
+                add = (add + totValue!)
+            }
+            
+            let totPrice = "Order Rs. "+(String(add))
+            totalPriceBtn.setTitle(totPrice, for: .normal)
         }
         cartTbl.reloadData()
     }
     
     func minAmtItems(amount: Int?, index: IndexPath?) {
         
+        var add:Double = 0
+        
         if amount != nil {
             if amount! > 0{
+                let addedAmt = Double(cart[index?.row ?? 0].amount ?? 0)
+                let foodPrice = cart[index?.row ?? 0].foodPrice
                 cart[index?.row ?? 0].amount = Int(Double((amount ?? 0) - 1))
+                cart[index?.row ?? 0].total =  addedAmt * foodPrice!
+                
+                let total = cart.map({($0.total)})
+                
+                for totValue in total {
+                    add = (add + totValue!)
+                }
+                
+                let totPrice = "Order Rs. "+(String(add))
+                totalPriceBtn.setTitle(totPrice, for: .normal)
             }
+            
+            
         }
         cartTbl.reloadData()
         

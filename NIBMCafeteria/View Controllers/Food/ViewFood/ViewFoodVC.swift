@@ -48,8 +48,8 @@ class ViewFoodVC: UIViewController {
         
         let foodName = foodDetails?.foodname
         let foodPrice = Double(foodDetails?.foodprice ?? "")
-        let foodamount : Double? = 1
-        let total = (foodPrice ?? 0 * foodamount! )
+        let foodamount : Int? = 1
+        let total = (foodPrice ?? Double(foodamount!) )
         let newcart = Cart(foodName: foodName, foodPrice: foodPrice, amount: foodamount,total:total)
         self.delegate?.itemAddedToCart(model: newcart, index: index)
         navigationController?.popViewController(animated: true)
