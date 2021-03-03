@@ -8,11 +8,11 @@
 import UIKit
 
 protocol addItemsAmtDelegate {
-    func addAmtItems(amount:Double?,index:IndexPath?)
+    func addAmtItems(amount:Int?,index:IndexPath?)
 }
 
 protocol minItemsAmtDelegate {
-    func minAmtItems(amount:Double?,index:IndexPath?)
+    func minAmtItems(amount:Int?,index:IndexPath?)
 
 }
 

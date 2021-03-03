@@ -220,19 +220,19 @@ extension FoodVC:addItemDelegate{
 }
 
 extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
-    func addAmtItems(amount: Double?, index: IndexPath?) {
+    func addAmtItems(amount: Int?, index: IndexPath?) {
         
         if amount != nil {
-            cart[index?.row ?? 0].amount = Double((amount ?? 0) + 1)
+            cart[index?.row ?? 0].amount = Int(Double((amount ?? 0) + 1))
         }
         cartTbl.reloadData()
     }
     
-    func minAmtItems(amount: Double?, index: IndexPath?) {
+    func minAmtItems(amount: Int?, index: IndexPath?) {
         
         if amount != nil {
             if amount! > 0{
-                cart[index?.row ?? 0].amount = Double((amount ?? 0) - 1)
+                cart[index?.row ?? 0].amount = Int(Double((amount ?? 0) - 1))
             }
         }
         cartTbl.reloadData()
