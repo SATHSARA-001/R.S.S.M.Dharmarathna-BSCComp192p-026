@@ -15,6 +15,8 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var ref: DatabaseReference! = Database.database().reference()
+    
     //MARK:Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +25,10 @@ class RegisterVC: UIViewController {
     
     //MARK:Functions
     func registerUser(){
+        
         // Create cleaned versions of the data
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let phone = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Create the user
@@ -35,7 +37,6 @@ class RegisterVC: UIViewController {
             // Check for errors
             if err != nil {
                 let okAction = AlertAction(title: .Ok)
-                
                 AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: err?.localizedDescription ?? "", actions: [okAction], completion: { action in
                     if action.title == .Ok {
                         self.emailTextField.text = ""
@@ -47,29 +48,13 @@ class RegisterVC: UIViewController {
                 })
             }
             else {
+                self.ref.child("users").child(result?.user.uid ?? "").setValue(["userID":result?.user.uid,"email":email, "phone":phone,"password":password])
                 
-                // User was created successfully, now store the first name and last name
-                let db = Firestore.firestore()
-                
-                db.collection("users").addDocument(data: ["email":email, "phone":phone,"password":password, "uid": result!.user.uid ]) { (error) in
-                    
-                    if error != nil {
-                        let okAction = AlertAction(title: .Ok)
-                        
-                        AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: error?.localizedDescription ?? "", actions: [okAction], completion: { action in
-                            if action.title == .Ok {
-                                
-                            } else {
-                                // Will dismiss alertView by default
-                            }
-                        })
-                    }
-                }
                 let okAction = AlertAction(title: .Ok)
-                
-                AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: "Registered Succesfully", actions: [okAction], completion: { action in
+                AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: "Registered Successfully" , actions: [okAction], completion: { action in
                     if action.title == .Ok {
                         self.emailTextField.text = ""
+                        self.phoneTextField.text = ""
                         self.passwordTextField.text = ""
                     } else {
                         // Will dismiss alertView by default
@@ -80,6 +65,7 @@ class RegisterVC: UIViewController {
             
         }
     }
+    
     
     //MARK:Actions
     @IBAction func registerAUser(_ sender: Any) {
