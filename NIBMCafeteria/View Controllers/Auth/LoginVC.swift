@@ -14,6 +14,9 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var ref: DatabaseReference! = Database.database().reference()
+
+    
     //MARK:Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,8 @@ class LoginVC: UIViewController {
             
             if error != nil {
                 let okAction = AlertAction(title: .Ok)
+                
+                self.ref.child("foods").child("Ice Cream").setValue(["categoryID":"des","foodname":"Ice Cream","foodprice":"50","foodDescription":"Vanila ice cream ","offer":"10"])
                 
                 let mainstoryboard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let viewController = mainstoryboard.instantiateViewController(withIdentifier: "MainTBC") as! UITabBarController
@@ -75,5 +80,17 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func resetPassword(_ sender: Any) {
+        
+        self.ref.child("users").getData { (error, snapshot) in
+            if let error = error {
+                print("Error getting data \(error)")
+            }
+            else if snapshot.exists() {
+                print("Got data \(snapshot.value!)")
+            }
+            else {
+                print("No data available")
+            }
+        }
     }
 }
