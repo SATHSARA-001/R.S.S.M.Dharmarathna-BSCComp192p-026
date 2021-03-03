@@ -18,25 +18,74 @@ class FoodVC: UIViewController  {
     @IBOutlet weak var totalPriceBtn: CustomButton!
     @IBOutlet weak var noOfItemsLbl: UILabel!
     
-    let db = Firestore.firestore()
     
     var cart : [Cart] = []
     var add:Double = 0
-
-    
+    var foodList = [Food]()
+    var categoryList = [Category]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
         setDelegate()
         
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        fetchCategories()
+        fetchFoods()
         setupUI()
-
+        
+    }
+    
+    func fetchCategories(){
+        let categoriesListRef: DatabaseReference! = Database.database().reference().child("categories")
+        
+        categoriesListRef.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0{
+                self.categoryList.removeAll()
+                
+                for categories in snapshot.children.allObjects as! [DataSnapshot]{
+                    let categoryObject = categories.value as? [String: AnyObject]
+                    
+                    let categoryID  = categoryObject?["categoryID"]
+                    let categoryName  = categoryObject?["categoryName"]
+                    
+                    let category = Category(categoryID: categoryID as! String?, categoryName: categoryName as! String?)
+                    
+                    //appending it to list
+                    self.categoryList.append(category)
+                    print(self.categoryList)
+                }
+            }
+        }
+        
+    }
+    
+    func fetchFoods(){
+        let foodListRef: DatabaseReference! = Database.database().reference().child("foods")
+        
+        foodListRef.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0{
+                self.foodList.removeAll()
+                
+                for foods in snapshot.children.allObjects as! [DataSnapshot]{
+                    let foodObject = foods.value as? [String: AnyObject]
+                    
+                    let categoryID  = foodObject?["categoryID"]
+                    let foodDescription  = foodObject?["foodDescription"]
+                    let foodname = foodObject?["foodname"]
+                    let foodprice  = foodObject?["foodprice"]
+                    let offer  = foodObject?["offer"]
+                    
+                    
+                    let food = Food(categoryID: categoryID as! String?, foodDescription: foodDescription as! String?, foodname: foodname as! String?, foodprice: foodprice as! String?, offer: offer as! String?)
+                    //appending it to list
+                    self.foodList.append(food)
+                    print(self.foodList)
+                }
+            }
+        }
     }
     
     func setDelegate(){
@@ -57,22 +106,7 @@ class FoodVC: UIViewController  {
         }else{
             carTitleView.isHidden = false
             cartTbl.isHidden = false
-
-        }
-    }
-    
-    func getData(){
-        
-        db.collection("categories").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    
-                    let  data = document.data()
-                    print(data["name"])
-                }
-            }
+            
         }
     }
     
@@ -157,9 +191,7 @@ extension FoodVC:addItemDelegate{
             cart.append(cartdate)
         }
         
-        
         let total = cart.map({($0.total)})
-
         print(total)
         
         for totValue in total {
@@ -173,7 +205,6 @@ extension FoodVC:addItemDelegate{
         print(cart)
     }
     
-  
 }
 
 extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
@@ -192,9 +223,9 @@ extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
                 cart[index?.row ?? 0].amount = (amount ?? 0) - 1
             }
         }
-         
+        
         cartTbl.reloadData()
-
+        
     }
-
+    
 }

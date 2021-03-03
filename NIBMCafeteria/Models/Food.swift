@@ -12,11 +12,11 @@ struct Food: Codable {
     var categoryID: String?
     var foodDescription: String?
     var foodname : String?
-    var foodprice: Double?
-    var offer: Double?
+    var foodprice: String?
+    var offer: String?
     
     
-    public init(categoryID: String?,foodDescription: String?,foodname : String?,foodprice: Double?,offer: Double?) {
+    public init(categoryID: String?,foodDescription: String?,foodname : String?,foodprice: String?,offer: String?) {
         self.categoryID = categoryID
         self.foodDescription = foodDescription
         self.foodname = foodname
