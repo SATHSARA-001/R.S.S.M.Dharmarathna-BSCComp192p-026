@@ -128,7 +128,8 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCategoryCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCategoryCell", for: indexPath) as! FoodCategoryCell
+        cell.configCell(model: categoryList[indexPath.row])
         return cell
     }
     
@@ -153,7 +154,7 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
         switch tableView {
         case FoodTbl :
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell") as! FoodCell
-            cell.configCell()
+            cell.configCell(model: foodList[indexPath.row])
             return cell
             
         case cartTbl :
@@ -174,7 +175,7 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
         switch tableView {
         case FoodTbl:
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let targetVC = storyboard.instantiateViewController(withIdentifier: "ViewFoodVC") as!ViewFoodVC
+            let targetVC = storyboard.instantiateViewController(withIdentifier: "ViewFoodVC") as! ViewFoodVC
             targetVC.delegate = self
             targetVC.index = indexPath.row
             self.navigationController?.pushViewController(targetVC, animated: true)

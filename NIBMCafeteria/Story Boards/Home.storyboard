@@ -205,6 +205,9 @@
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
                                                                 <size key="customSize" width="218" height="177"/>
+                                                                <connections>
+                                                                    <outlet property="categoryName" destination="oop-dJ-u8k" id="EEc-1g-cwR"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
@@ -286,6 +289,11 @@
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
+                                                                    <outlet property="foodDescText" destination="C6U-ZN-g4F" id="fT5-aM-DVI"/>
+                                                                    <outlet property="foodImage" destination="Lvq-MF-1sk" id="uEZ-5p-yX2"/>
+                                                                    <outlet property="foodNameTxt" destination="Lru-zN-OUT" id="PXv-e0-RVB"/>
+                                                                    <outlet property="foodOfferTxt" destination="asO-u2-Wwq" id="ScB-kk-XBt"/>
+                                                                    <outlet property="foodPriceTxt" destination="PeT-OQ-gxo" id="OAv-gA-TLl"/>
                                                                     <outlet property="shadowView" destination="Gug-vE-ePs" id="nKW-ca-8tJ"/>
                                                                 </connections>
                                                             </tableViewCell>
