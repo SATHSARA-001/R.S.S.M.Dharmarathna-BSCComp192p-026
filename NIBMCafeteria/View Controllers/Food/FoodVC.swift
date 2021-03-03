@@ -26,16 +26,16 @@ class FoodVC: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchCategories()
+        fetchFoods()
         setDelegate()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchCategories()
-        fetchFoods()
         setupUI()
-        
+
     }
     
     func fetchCategories(){
@@ -55,8 +55,11 @@ class FoodVC: UIViewController  {
                     
                     //appending it to list
                     self.categoryList.append(category)
-                    print(self.categoryList)
+                    print(self.categoryList.count)
                 }
+                
+                self.FoodCategoryCV.reloadData()
+
             }
         }
         
@@ -82,8 +85,9 @@ class FoodVC: UIViewController  {
                     let food = Food(categoryID: categoryID as! String?, foodDescription: foodDescription as! String?, foodname: foodname as! String?, foodprice: foodprice as! String?, offer: offer as! String?)
                     //appending it to list
                     self.foodList.append(food)
-                    print(self.foodList)
                 }
+                
+                self.FoodTbl.reloadData()
             }
         }
     }
@@ -119,7 +123,7 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return categoryList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -127,8 +131,6 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCategoryCell", for: indexPath)
         return cell
     }
-    
-    
     
 }
 
@@ -138,7 +140,7 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
         
         switch tableView {
         case FoodTbl :
-            return 3
+            return foodList.count
         case cartTbl :
             return cart.count
         default:
