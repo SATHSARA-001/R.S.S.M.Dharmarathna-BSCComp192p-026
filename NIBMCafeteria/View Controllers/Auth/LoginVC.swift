@@ -15,7 +15,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     var ref: DatabaseReference! = Database.database().reference()
-
+    
     
     //MARK:Life Cycle
     override func viewDidLoad() {
@@ -37,20 +37,31 @@ class LoginVC: UIViewController {
             if error != nil {
                 let okAction = AlertAction(title: .Ok)
                 
-                self.ref.child("foods").child("Ice Cream").setValue(["categoryID":"des","foodname":"Ice Cream","foodprice":"50","foodDescription":"Vanila ice cream ","offer":"10"])
+                //                self.ref.child("categories").child("breakfast").setValue(["categoryID":"brkfst","categoryName":"Breakfast"])
+                //                self.ref.child("categories").child("lunch").setValue(["categoryID":"lnch","categoryName":"Lunch"])
+                //                self.ref.child("categories").child("dinner").setValue(["categoryID":"dnr","categoryName":"Dinner"])
+                
+                //                self.ref.child("foods").child("Bread").setValue(["categoryID":"brkfst","foodDescription":"Bread with dhal","foodname":"Bread","foodprice":"120"])
+                
+                //                self.ref.child("foods").child("FriedRice").setValue(["categoryID":"dnr","foodDescription":"Chineese Fried Rice","foodname":"Fried Rice","foodprice":"250","offer":"12"])
+                //
+                //                self.ref.child("foods").child("WaterMelon").setValue(["categoryID":"Drnk","foodDescription":"Water Melon Juice","foodname":"WaterMelon","foodprice":"120","offer":"5"])
+                //
+                //                self.ref.child("foods").child("RiceWithChicken").setValue(["categoryID":"lnch","foodDescription":"White rice with Chicken","foodname":"Rice With Chicken","foodprice":"180"])
+                
                 
                 let mainstoryboard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let viewController = mainstoryboard.instantiateViewController(withIdentifier: "MainTBC") as! UITabBarController
                 self.view.window?.rootViewController = viewController
                 self.view.window?.makeKeyAndVisible()
                 
-//                AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: error?.localizedDescription ?? "", actions: [okAction], completion: { action in
-//                    if action.title == .Ok {
-//                        
-//                    } else {
-//                        // Will dismiss alertView by default
-//                    }
-//                })
+                //                AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: error?.localizedDescription ?? "", actions: [okAction], completion: { action in
+                //                    if action.title == .Ok {
+                //
+                //                    } else {
+                //                        // Will dismiss alertView by default
+                //                    }
+                //                })
             }
             else {
                 let okAction = AlertAction(title: .Ok)

@@ -22,6 +22,7 @@ class FoodVC: UIViewController  {
     var cart : [Cart] = []
     var add:Double = 0
     var foodList = [Food]()
+    var filteredFoodList = [Food]()
     var categoryList = [Category]()
     
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class FoodVC: UIViewController  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setupUI()
-
+        
     }
     
     func fetchCategories(){
@@ -59,7 +60,7 @@ class FoodVC: UIViewController  {
                 }
                 
                 self.FoodCategoryCV.reloadData()
-
+                
             }
         }
         
@@ -133,6 +134,13 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let selectedCategoryID = categoryList[indexPath.row].categoryID
+        filteredFoodList = foodList.filter({$0.categoryID == selectedCategoryID})
+        self.FoodTbl.reloadData()
+        
+    }
 }
 
 extension FoodVC:UITableViewDelegate,UITableViewDataSource{
@@ -141,7 +149,7 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
         
         switch tableView {
         case FoodTbl :
-            return foodList.count
+            return filteredFoodList.count
         case cartTbl :
             return cart.count
         default:
@@ -154,7 +162,7 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
         switch tableView {
         case FoodTbl :
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell") as! FoodCell
-            cell.configCell(model: foodList[indexPath.row])
+            cell.configCell(model: filteredFoodList[indexPath.row])
             return cell
             
         case cartTbl :
@@ -226,7 +234,6 @@ extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
                 cart[index?.row ?? 0].amount = (amount ?? 0) - 1
             }
         }
-        
         cartTbl.reloadData()
         
     }
