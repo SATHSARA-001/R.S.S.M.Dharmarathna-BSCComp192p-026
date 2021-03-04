@@ -23,6 +23,8 @@
 		8C59868425E4C399005A6F74 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C59868325E4C399005A6F74 /* TabBarController.storyboard */; };
 		8C6D7A8325EFD37900F2FCF0 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D7A8225EFD37800F2FCF0 /* Food.swift */; };
 		8C6D7A8725EFD58100F2FCF0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D7A8625EFD58100F2FCF0 /* Category.swift */; };
+		8C8A4E6B25F1267E00756143 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A4E6A25F1267E00756143 /* User.swift */; };
+		8C8A4E6E25F128A100756143 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A4E6D25F128A100756143 /* Account.swift */; };
 		8CAF029D25E55253006980BE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF029C25E55253006980BE /* LoginVC.swift */; };
 		8CAF02A025E55261006980BE /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF029F25E55261006980BE /* RegisterVC.swift */; };
 		8CC8896425E55BA200B01434 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8896325E55BA200B01434 /* GoogleService-Info.plist */; };
@@ -59,6 +61,8 @@
 		8C59868325E4C399005A6F74 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		8C6D7A8225EFD37800F2FCF0 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		8C6D7A8625EFD58100F2FCF0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8C8A4E6A25F1267E00756143 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8C8A4E6D25F128A100756143 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8CAF029C25E55253006980BE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8CAF029F25E55261006980BE /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		8CC8896325E55BA200B01434 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 				8CF03DA725ED16E4007BDFD6 /* Cart.swift */,
 				8C6D7A8225EFD37800F2FCF0 /* Food.swift */,
 				8C6D7A8625EFD58100F2FCF0 /* Category.swift */,
+				8C8A4E6A25F1267E00756143 /* User.swift */,
+				8C8A4E6D25F128A100756143 /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				8CAF02A025E55261006980BE /* RegisterVC.swift in Sources */,
 				8C59866725E4B628005A6F74 /* SceneDelegate.swift in Sources */,
 				8CC8896B25E55F6E00B01434 /* Utilities.swift in Sources */,
+				8C8A4E6E25F128A100756143 /* Account.swift in Sources */,
 				8CF03DAE25ED1F5F007BDFD6 /* ViewFoodVC.swift in Sources */,
 				8CAF029D25E55253006980BE /* LoginVC.swift in Sources */,
 				8CC8897425E5FA4F00B01434 /* Localizator.swift in Sources */,
@@ -384,6 +391,7 @@
 				8C1A89F525ECAC780038295E /* OrderVC.swift in Sources */,
 				8CF03DA425ECEFC4007BDFD6 /* FoodCell.swift in Sources */,
 				8C6D7A8725EFD58100F2FCF0 /* Category.swift in Sources */,
+				8C8A4E6B25F1267E00756143 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

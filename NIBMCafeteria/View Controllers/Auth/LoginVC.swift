@@ -25,11 +25,10 @@ class LoginVC: UIViewController {
     }
     
     
+    
     //MARK:Functions
     
-    func vaidataData() -> String{
-        
-    }
+    
     
     func loginUser(){
         
@@ -41,10 +40,10 @@ class LoginVC: UIViewController {
         
         // Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            
+            print(result as Any)
             if error != nil {
                 let okAction = AlertAction(title: .Ok)
-              
+                
                 let mainstoryboard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let viewController = mainstoryboard.instantiateViewController(withIdentifier: "MainTBC") as! UITabBarController
                 self.view.window?.rootViewController = viewController
@@ -52,6 +51,12 @@ class LoginVC: UIViewController {
                 
             }
             else {
+                let defaults = UserDefaults.standard
+                
+                defaults.set(result?.user.uid, forKey: "userID")
+                defaults.set(result?.user.phoneNumber, forKey: "phoneNumber")
+                defaults.set(result?.user.email, forKey: "userName")
+                
                 let okAction = AlertAction(title: .Ok)
                 
                 AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: "Loggin Succefully", actions: [okAction], completion: { action in
