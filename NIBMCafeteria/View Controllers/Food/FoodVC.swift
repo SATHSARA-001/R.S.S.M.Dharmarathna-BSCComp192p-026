@@ -18,6 +18,8 @@ class FoodVC: UIViewController  {
     @IBOutlet weak var totalPriceBtn: CustomButton!
     @IBOutlet weak var noOfItemsLbl: UILabel!
     
+    let ref: DatabaseReference! = Database.database().reference().child("orders")
+    
     
     var cart : [Cart] = []
     var add:Double = 0
@@ -114,6 +116,19 @@ class FoodVC: UIViewController  {
             
         }
     }
+    
+    @IBAction func clickOrder(_ sender: Any) {
+        if cart.count > 0{
+            
+            let time = Date().convertDateToString(.FullDateTime_WithSlash_12Hours_dMy)
+            self.ref.child("orders").setValue(["cart": cart,"time": time])
+            ref.setValue(cart)
+            
+            
+            
+        }
+    }
+    
     
 }
 
