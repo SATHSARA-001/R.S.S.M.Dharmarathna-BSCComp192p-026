@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+import CoreLocation
+
 
 class RegisterVC: UIViewController {
     
@@ -16,6 +18,8 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     var ref: DatabaseReference! = Database.database().reference()
+    var locationManager = CLLocationManager()
+    
     
     //MARK:Life Cycle
     override func viewDidLoad() {
@@ -56,6 +60,9 @@ class RegisterVC: UIViewController {
                         self.emailTextField.text = ""
                         self.phoneTextField.text = ""
                         self.passwordTextField.text = ""
+                        
+                        self.initLocationManager()
+                        
                     } else {
                         // Will dismiss alertView by default
                     }
@@ -72,5 +79,28 @@ class RegisterVC: UIViewController {
         registerUser()
     }
     
+    func initLocationManager(){
+        
+        if CLLocationManager.locationServicesEnabled() {
+            
+            switch CLLocationManager.authorizationStatus() {
+            case .restricted, .denied:
+                AlertProvider(vc: self).showAlertWithAction(title: "Access Needed", message: "Need permission to use the location services. Go to settings and unable access permission for location services", action: AlertAction(title: "Settings")) { (action) in
+                    if action.title == "Settings" {
+                        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!
+                        UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
+                    }
+                }
+                break
+            case .authorizedAlways, .authorizedWhenInUse:
+                
+                break
+            default :
+                locationManager.requestWhenInUseAuthorization()
+            }
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
     
 }
