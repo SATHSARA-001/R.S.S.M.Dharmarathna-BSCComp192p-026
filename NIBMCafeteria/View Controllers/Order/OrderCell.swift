@@ -10,6 +10,8 @@ import UIKit
 class OrderCell: UITableViewCell {
 
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var orderIDTxt: UILabel!
+    @IBOutlet weak var orderTimeDurationTxt: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +24,12 @@ class OrderCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCell(){
+    func configCell(model:CartObject,index:Int){
+        
+        let time = model.time?.convertStringToDate(.Time_24Hours)
+        let currTime = Date().convertDateToString(.Time_24Hours).convertStringToDate(.Time_24Hours)
+        orderIDTxt.text = "Order ID "+String(index + 1)
+      
         shadowView.addShadow()
     }
 

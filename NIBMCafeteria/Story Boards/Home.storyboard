@@ -559,6 +559,8 @@
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
+                                                            <outlet property="orderIDTxt" destination="7k2-99-YoO" id="fXv-Qs-kOi"/>
+                                                            <outlet property="orderTimeDurationTxt" destination="9mN-iO-GiM" id="Dwx-wX-q5S"/>
                                                             <outlet property="shadowView" destination="gli-du-LUR" id="Kjm-yt-AeU"/>
                                                         </connections>
                                                     </tableViewCell>

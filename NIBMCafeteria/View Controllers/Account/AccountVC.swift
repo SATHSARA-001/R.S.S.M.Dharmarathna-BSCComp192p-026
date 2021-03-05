@@ -21,7 +21,8 @@ class AccountVC: UIViewController {
     
     var userID : String?
     
-    
+    var userList = [User]()
+    var loginuser = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,45 @@ class AccountVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchUserAccount()
+    }
     
     func setupUI(){
         avarterImg.layer.cornerRadius = avarterImg.frame.height / 2
         profilePicBtn.layer.cornerRadius = profilePicBtn.frame.height / 2
         
+    }
+    
+    func fetchUserAccount(){
+        let orderList: DatabaseReference! = Database.database().reference().child("users")
+        
+        orderList.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0{
+                self.userList.removeAll()
+                
+                for users in snapshot.children.allObjects as! [DataSnapshot]{
+                    let userObject = users.value as? [String: AnyObject]
+                    
+                    let email  = userObject?["email"]
+                    let phone  = userObject?["phone"]
+                    let userID  = userObject?["userID"]
+                    
+                    let user = User(userID: userID as? String, contactNo: phone as? String, email: email as? String)
+                    
+                    //appending it to list
+                    self.userList.append(user)
+                    print(self.userList.count)
+                }
+                
+                self.loginuser = self.userList.filter({$0.userID == self.userID})
+                print(self.loginuser)
+                
+//                self.user.reloadData()
+                
+            }
+        }
     }
     
     func setData(){
