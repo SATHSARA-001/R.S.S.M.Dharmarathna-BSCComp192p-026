@@ -15,14 +15,12 @@ struct Cart: Codable {
     var foodPrice: Double?
     var amount : Int?
     var total: Double?
-    var time: String?
     
     public init( foodName: String?,foodPrice: Double?,amount : Int?,total: Double?,time: String?) {
         self.foodName = foodName
         self.foodPrice = foodPrice
         self.amount = amount
         self.total = total
-        self.time = time
     }
     
     public enum CodingKeys: String, CodingKey {
@@ -30,7 +28,6 @@ struct Cart: Codable {
         case foodPrice = "foodPrice"
         case amount = "amount"
         case total = "total"
-        case time = "time"
     }
     
     

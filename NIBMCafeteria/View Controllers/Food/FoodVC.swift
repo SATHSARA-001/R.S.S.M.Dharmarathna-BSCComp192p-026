@@ -8,10 +8,7 @@
 import UIKit
 import Firebase
 
-struct CartObject: Codable {
-    var cart:[Cart]
-    var time:String
-}
+
 class FoodVC: UIViewController  {
     
     @IBOutlet weak var FoodCategoryCV: UICollectionView!
@@ -22,6 +19,7 @@ class FoodVC: UIViewController  {
     @IBOutlet weak var noOfItemsLbl: UILabel!
     
     let ref: DatabaseReference! = Database.database().reference().child("orders")
+    let defaults = UserDefaults.standard
     
     
     var cart : [Cart] = []
@@ -117,21 +115,38 @@ class FoodVC: UIViewController  {
         }else{
             carTitleView.isHidden = false
             cartTbl.isHidden = false
-            
         }
     }
     
     @IBAction func clickOrder(_ sender: Any) {
         if cart.count > 0{
+            
+            var totalAmt = 0.0
+            
             let time = Date().convertDateToString(.FullDateTime_WithSlash_12Hours_dMy)
-            let cartObject = CartObject(cart: cart,time:time)
-           
+            let userID = defaults.string(forKey: "userID") ?? ""
+            
+            let total = cart.map({($0.total)})
+            
+            for totValue in total {
+                totalAmt = (totalAmt + totValue!)
+            }
+            
+            let totalIS = String(totalAmt)
+            
+            let cartObject = CartObject(cart: cart,time:time, userID: userID,totalAmt:totalIS )
             
             do{
                 
-              let obj =  try cartObject.toDictionary()
+                let obj =  try cartObject.toDictionary()
                 
                 self.ref.childByAutoId().setValue(obj)
+                
+                cart.removeAll()
+                cartTbl.reloadData()
+                setupUI()
+                
+                totalPriceBtn.setTitle("Order", for: .normal)
             }catch{
                 
             }
@@ -236,7 +251,7 @@ extension FoodVC:addItemDelegate{
         }
         
         print(add)
-        let totPrice = "Order Rs. "+(String(add))
+        let totPrice = "Order (Rs."+(String(add)+")")
         totalPriceBtn.setTitle(totPrice, for: .normal)
         cartTbl.reloadData()
         print(cart)
@@ -277,7 +292,7 @@ extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
         
         if amount != nil {
             if amount! > 0{
-
+                
                 let foodPrice = cart[index?.row ?? 0].foodPrice
                 cart[index?.row ?? 0].amount = Int(Double((amount ?? 0) - 1))
                 let addedAmt = Double(cart[index?.row ?? 0].amount ?? 0)
