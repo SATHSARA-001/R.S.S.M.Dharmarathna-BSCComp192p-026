@@ -10,6 +10,7 @@ import Firebase
 
 struct CartObject: Codable {
     var cart:[Cart]
+    var time:String
 }
 class FoodVC: UIViewController  {
     
@@ -122,15 +123,15 @@ class FoodVC: UIViewController  {
     
     @IBAction func clickOrder(_ sender: Any) {
         if cart.count > 0{
-            let cartObject = CartObject(cart: cart)
+            let time = Date().convertDateToString(.FullDateTime_WithSlash_12Hours_dMy)
+            let cartObject = CartObject(cart: cart,time:time)
+           
             
-            let jsonData = try! JSONEncoder().encode(cartObject)
-            let jsonString = String(data: jsonData, encoding: .utf8)!
             do{
                 
               let obj =  try cartObject.toDictionary()
-                let time = Date().convertDateToString(.FullDateTime_WithSlash_12Hours_dMy)
-                self.ref.childByAutoId().setValue(["cart":obj ,"time": time])
+                
+                self.ref.childByAutoId().setValue(obj)
             }catch{
                 
             }
