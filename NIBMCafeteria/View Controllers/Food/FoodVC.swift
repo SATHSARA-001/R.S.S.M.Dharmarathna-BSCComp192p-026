@@ -8,7 +8,9 @@
 import UIKit
 import Firebase
 
-
+struct CartObject: Codable {
+    var cart:[Cart]
+}
 class FoodVC: UIViewController  {
     
     @IBOutlet weak var FoodCategoryCV: UICollectionView!
@@ -22,6 +24,7 @@ class FoodVC: UIViewController  {
     
     
     var cart : [Cart] = []
+    
     var add:Double = 0
     var foodList = [Food]()
     var filteredFoodList = [Food]()
@@ -119,12 +122,18 @@ class FoodVC: UIViewController  {
     
     @IBAction func clickOrder(_ sender: Any) {
         if cart.count > 0{
+            let cartObject = CartObject(cart: cart)
             
-            let time = Date().convertDateToString(.FullDateTime_WithSlash_12Hours_dMy)
-            self.ref.child("orders").setValue(["cart": cart,"time": time])
-            ref.setValue(cart)
-            
-            
+            let jsonData = try! JSONEncoder().encode(cartObject)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            do{
+                
+              let obj =  try cartObject.toDictionary()
+                let time = Date().convertDateToString(.FullDateTime_WithSlash_12Hours_dMy)
+                self.ref.childByAutoId().setValue(["cart":obj ,"time": time])
+            }catch{
+                
+            }
             
         }
     }
@@ -241,11 +250,13 @@ extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
             
             var add:Double = 0
             
-            let addedAmt = Double(cart[index?.row ?? 0].amount ?? 0)
             let foodPrice = cart[index?.row ?? 0].foodPrice
             
             cart[index?.row ?? 0].amount = Int(Double((amount ?? 0) + 1))
+            let addedAmt = Double(cart[index?.row ?? 0].amount ?? 0)
             cart[index?.row ?? 0].total =  addedAmt * foodPrice!
+            
+            
             
             let total = cart.map({($0.total)})
             
@@ -265,9 +276,10 @@ extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
         
         if amount != nil {
             if amount! > 0{
-                let addedAmt = Double(cart[index?.row ?? 0].amount ?? 0)
+
                 let foodPrice = cart[index?.row ?? 0].foodPrice
                 cart[index?.row ?? 0].amount = Int(Double((amount ?? 0) - 1))
+                let addedAmt = Double(cart[index?.row ?? 0].amount ?? 0)
                 cart[index?.row ?? 0].total =  addedAmt * foodPrice!
                 
                 let total = cart.map({($0.total)})

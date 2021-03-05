@@ -40,10 +40,11 @@
         <scene sceneID="i4U-4y-siJ">
             <objects>
                 <tabBarController storyboardIdentifier="MainTBC" id="KxE-ha-OL3" customClass="MainTBC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionIndicatorImage="Screenshot 2021-03-01 at 11.23.01" id="diH-KR-zRg">
+                    <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionIndicatorImage="download (1)" id="diH-KR-zRg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="contentStretch" x="0.5" y="0.0" width="1" height="1"/>
                         <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
@@ -66,6 +67,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screenshot 2021-03-01 at 11.23.01" width="180" height="86"/>
+        <image name="download (1)" width="428" height="176"/>
     </resources>
 </document>
