@@ -19,8 +19,30 @@ class ResetPasswordVC: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
+    
     //MARK:Functions
+    
+    //Mark Validate Fields
+    func validateFields() -> String? {
+        
+        // Check that all fields are filled in
+        if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""  {
+            
+            return "Please fill in all fields."
+        }
+        
+        // Check if the email is correct format
+        let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if Utilities.isValidEmailAddress(email: cleanedEmail) == false{
+            return "Invalid formatted email address"
+        }
+        
+        
+        return nil
+    }
+    
+    //MARK:Reset password network request
     func resetMyPassword(){
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         Auth.auth().sendPasswordReset(withEmail: email ) { (error) in
@@ -53,8 +75,19 @@ class ResetPasswordVC: UIViewController {
     //MARK:Actions
     @IBAction func resetMyPassword(_ sender: Any) {
         
-        resetMyPassword()
+        let validation = validateFields()
+        
+        if validation == nil{
+            resetMyPassword()
+        }else{
+            let okAction = AlertAction(title: .Ok)
+            
+            AlertProvider(vc: self).showAlertWithActions(title: "Error", message:validation ?? "", actions: [okAction], completion: { action in
+                if action.title == .Ok {
+                } else {
+                    // Will dismiss alertView by default
+                }
+            })
+        }
     }
-    
-    
 }

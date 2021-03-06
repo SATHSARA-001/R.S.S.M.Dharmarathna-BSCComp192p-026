@@ -52,11 +52,11 @@ class ViewFoodVC: UIViewController {
         let foodamount : Int? = 1
         var total = 0.0
         
-        if foodDetails?.offer != nil{
-            total = (foodPrice! - ((foodPrice! * offer! )/100 ))
-        }else{
+//        if foodDetails?.offer != nil{
+//            total = (foodPrice! - ((foodPrice! * offer! )/100 ))
+//        }else{
              total = (foodPrice ?? Double(foodamount!) )
-        }
+        //}
         
         let newcart = Cart(foodName: foodName, foodPrice: foodPrice, amount: foodamount,total:total,time: "")
         self.delegate?.itemAddedToCart(model: newcart, index: index)
