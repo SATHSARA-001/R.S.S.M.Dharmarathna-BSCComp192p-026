@@ -24,10 +24,9 @@ class LoginVC: UIViewController {
         
     }
     
-    
-    
     //MARK:Functions
     
+    //Mark Validate Fields
     func validateFields() -> String? {
         
         // Check that all fields are filled in
@@ -48,13 +47,12 @@ class LoginVC: UIViewController {
         return nil
     }
     
+    //MARK:Login User Network Request
     func loginUser(){
         
         // Create cleaned versions of the text field
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        //Check Validations
         
         // Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
@@ -116,22 +114,6 @@ class LoginVC: UIViewController {
                 }
             })
         }
-        
-        
     }
     
-    @IBAction func resetPassword(_ sender: Any) {
-        
-        self.ref.child("users").getData { (error, snapshot) in
-            if let error = error {
-                print("Error getting data \(error)")
-            }
-            else if snapshot.exists() {
-                print("Got data \(snapshot.value!)")
-            }
-            else {
-                print("No data available")
-            }
-        }
-    }
 }
