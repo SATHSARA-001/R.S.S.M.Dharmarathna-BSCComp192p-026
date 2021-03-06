@@ -17,6 +17,9 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
     @IBOutlet weak var profilePicBtn: UIButton!
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var contactNoTxt: UITextField!
+    @IBOutlet weak var orderDateFrom: UILabel!
+    @IBOutlet weak var orderDateTo: UILabel!
+    @IBOutlet weak var orderAmtTxt: UILabel!
     
     let ref: DatabaseReference! = Database.database().reference()
     let storage = Storage.storage().reference()
@@ -25,6 +28,8 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
     let picker = UIImagePickerController()
     var userList = [User]()
     var loginuser = [User]()
+    var orderList = [CartObject]()
+    
     
     
     override func viewDidLoad() {
@@ -37,6 +42,7 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchUserAccount()
+        fetchOrders()
         setupUI()
         setData()
     }
@@ -79,6 +85,37 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
         }
     }
     
+    func fetchOrders(){
+        
+        let orderList: DatabaseReference! = Database.database().reference().child("orders")
+        
+        orderList.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0{
+                self.orderList.removeAll()
+                
+                for orders in snapshot.children.allObjects as! [DataSnapshot]{
+                    let categoryObject = orders.value as? [String: AnyObject]
+                    
+                    let cart  = categoryObject?["cart"]
+                    let time  = categoryObject?["time"]
+                    let userID  = categoryObject?["userID"]
+                    let totalAmt  = categoryObject?["totalAmt"]
+                    
+                    
+                    let cartObject = CartObject(cart: cart as? [Cart], time: time as? String, userID: userID as? String, totalAmt: totalAmt as? String)
+                    
+                    //appending it to list
+                    self.orderList.append(cartObject)
+                    print(self.orderList.count)
+                }
+                
+                
+            }
+        }
+        
+    }
+    
+    
     func setData(){
         
         userNameTxt.text = loginuser.first?.email
@@ -86,8 +123,13 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
         let Image = loginuser.first?.avarterImage
         
         guard let imageData = Image else{return}
-        
         avarterImg.setImageWithUrl(imageData)
+        
+        print(orderList)
+        
+        orderDateTo.text = orderList.first?.time?.convertStringToDate(.Date_WithDash_dMy).convertDateToString(.Date_WithSlash_dMy)
+        orderDateFrom.text = orderList.last?.time?.convertStringToDate(.Date_WithDash_dMy).convertDateToString(.Date_WithSlash_dMy)
+        
         
     }
     
@@ -96,7 +138,7 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true
         present(picker, animated: true, completion: nil)
-        
+    
     }
     
     

@@ -43,6 +43,7 @@ enum DateFormat: String {
     case Time_12Hours_hmsx = "h:mm:ss a"
     case Time_12Hours_hmx = "hh:mm aa"
     case Time_12Hours_hm_WithSpace_ymd = "h:mm a- yyyyMMMdd"
+    case Date_WithSpace_numeric = "yyyy mm dd"
 }
 
 extension String {

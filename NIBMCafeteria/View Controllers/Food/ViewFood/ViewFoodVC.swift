@@ -42,6 +42,19 @@ class ViewFoodVC: UIViewController {
         offerValueTxt.text = foodDetails?.offer
         priceTxt.text = foodDetails?.foodprice
         descTxt.text = foodDetails?.foodDescription
+        
+        if let foodOfferAvailable = foodDetails?.offer{
+            offerValueTxt.text = (foodDetails?.offer ?? "") + "% off"
+            offerValueTxt.isHidden = false
+
+        }else{
+            offerValueTxt.isHidden = true
+        }
+        
+        if let imageData = foodDetails?.image {
+            foodImg.setImageWithUrl(imageData)
+        }
+        
     }
     
     @IBAction func addItemToCart(_ sender: Any) {
