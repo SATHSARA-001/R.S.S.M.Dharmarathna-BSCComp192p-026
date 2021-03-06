@@ -13,15 +13,17 @@ struct Food: Codable {
     var foodDescription: String?
     var foodname : String?
     var foodprice: String?
+    var image:String?
     var offer: String?
     
     
-    public init(categoryID: String?,foodDescription: String?,foodname : String?,foodprice: String?,offer: String?) {
+    public init(categoryID: String?,foodDescription: String?,foodname : String?,foodprice: String?,offer: String?,image:String?) {
         self.categoryID = categoryID
         self.foodDescription = foodDescription
         self.foodname = foodname
         self.foodprice = foodprice
         self.offer = offer
+        self.image = image
         
     }
     
@@ -31,6 +33,7 @@ struct Food: Codable {
         case foodname = "foodname"
         case foodprice = "foodprice"
         case offer = "offer"
+        case image = "image"
     }
     
     

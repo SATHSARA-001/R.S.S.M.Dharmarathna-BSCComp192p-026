@@ -104,8 +104,15 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
         
         let email = userNameTxt.text
         let contactNo = contactNoTxt.text
+        let avarters:String?
         
-        let user = ["email":email,"phone":contactNo,"userID":userID]
+        if let imageDatas = loginuser.first?.avarterImage {
+            avarters = imageDatas
+        }else{
+            avarters = ""
+        }
+        
+        let user = ["email":email,"phone":contactNo,"userID":userID,"avarter": avarters ]
         
         let refUsers: DatabaseReference! = Database.database().reference().child("users")
         
@@ -156,7 +163,7 @@ extension AccountVC:UIImagePickerControllerDelegate,UINavigationControllerDelega
                 self.setData()
                 
                 print(url.absoluteURL)
-     
+                
                 
             }
         })
