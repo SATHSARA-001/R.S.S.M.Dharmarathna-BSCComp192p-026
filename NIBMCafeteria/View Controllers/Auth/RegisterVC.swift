@@ -17,9 +17,9 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    //MARK:Variables
     var ref: DatabaseReference! = Database.database().reference()
     var locationManager = CLLocationManager()
-    
     
     //MARK:Life Cycle
     override func viewDidLoad() {
@@ -29,43 +29,34 @@ class RegisterVC: UIViewController {
     
     //MARK:Functions
     
-    
-    
+    //MARK:Validations
     func validateFields() -> String? {
         
         let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        // Check that all fields are filled in
+        // MARK:Check that all fields are filled in
         if cleanedEmail == "" || cleanedPhone == "" || cleanedPassword == ""{
-            
             return "Please fill in all fields."
         }
-        
-        // Check if the email is correct format
-        
+        // MARK:Check that valid email entered
         if Utilities.isValidEmailAddress(email: cleanedEmail) == false{
             return "Invalid  email address"
         }
-        
+        // MARK:Check that valid phone number entered
         if Utilities.isValidPhoneNumber(phone: cleanedPhone) == false{
             return "Invalid phone number"
         }
-        
+        // MARK:Check that valid password entered
         if Utilities.isPasswordValid(cleanedPassword) == false{
             return "Password should contan 8 charcters with special character"
         }
         
-        
         return nil
     }
     
-    
-    
-    
-    
-    
+    //MARK:Register User Nwtwork Request
     func registerUser(){
         
         // Create cleaned versions of the data
@@ -99,15 +90,11 @@ class RegisterVC: UIViewController {
                         self.phoneTextField.text = ""
                         self.passwordTextField.text = ""
                         
-                        self.initLocationManager()
-                        
                     } else {
                         // Will dismiss alertView by default
                     }
                 })
-                
             }
-            
         }
     }
     
@@ -129,32 +116,5 @@ class RegisterVC: UIViewController {
                 }
             })
         }
-        
-        
     }
-    
-    func initLocationManager(){
-        
-        if CLLocationManager.locationServicesEnabled() {
-            
-            switch CLLocationManager.authorizationStatus() {
-            case .restricted, .denied:
-                AlertProvider(vc: self).showAlertWithAction(title: "Access Needed", message: "Need permission to use the location services. Go to settings and unable access permission for location services", action: AlertAction(title: "Settings")) { (action) in
-                    if action.title == "Settings" {
-                        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!
-                        UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
-                    }
-                }
-                break
-            case .authorizedAlways, .authorizedWhenInUse:
-                
-                break
-            default :
-                locationManager.requestWhenInUseAuthorization()
-            }
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
-    }
-    
 }
