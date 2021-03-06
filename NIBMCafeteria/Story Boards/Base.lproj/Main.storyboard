@@ -313,6 +313,9 @@
                                                                     <constraint firstAttribute="height" constant="48" id="P9S-za-WdG"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Allow Location"/>
+                                                                <connections>
+                                                                    <action selector="popView:" destination="C5m-S6-j8N" eventType="touchUpInside" id="Kx3-Tr-bjl"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>

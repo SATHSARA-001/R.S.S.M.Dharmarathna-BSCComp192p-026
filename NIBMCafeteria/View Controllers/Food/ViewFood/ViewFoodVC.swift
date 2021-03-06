@@ -51,11 +51,12 @@ class ViewFoodVC: UIViewController {
         let offer = Double(foodDetails?.offer ?? "")
         let foodamount : Int? = 1
         var total = 0.0
+        total = (foodPrice ?? Double(foodamount!) )
+
         
 //        if foodDetails?.offer != nil{
 //            total = (foodPrice! - ((foodPrice! * offer! )/100 ))
 //        }else{
-             total = (foodPrice ?? Double(foodamount!) )
         //}
         
         let newcart = Cart(foodName: foodName, foodPrice: foodPrice, amount: foodamount,total:total,time: "")

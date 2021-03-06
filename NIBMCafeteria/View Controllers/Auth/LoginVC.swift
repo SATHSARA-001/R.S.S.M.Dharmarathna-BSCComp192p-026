@@ -21,7 +21,31 @@ class LoginVC: UIViewController {
     //MARK:Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkLocationAccess()
         
+    }
+    
+    func checkLocationAccess(){
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                print("No access")
+                let mainstoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = mainstoryboard.instantiateViewController(withIdentifier: "RequestLocationVC") as! RequestLocationVC
+                viewController.modalPresentationStyle = .fullScreen
+                self.present(viewController, animated: true,completion: nil)
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Access")
+                let mainstoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = mainstoryboard.instantiateViewController(withIdentifier: "RequestLocationVC") as! RequestLocationVC
+                viewController.modalPresentationStyle = .fullScreen
+                self.present(viewController, animated: true,completion: nil)
+            @unknown default:
+                break
+            }
+        } else {
+            print("Location services are not enabled")
+        }
     }
     
     //MARK:Functions
