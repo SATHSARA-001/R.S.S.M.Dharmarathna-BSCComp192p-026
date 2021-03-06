@@ -115,5 +115,13 @@ class LoginVC: UIViewController {
             })
         }
     }
+    @IBAction func forgetPasswordView(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let targetVC = storyboard.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
+        
+        self.navigationController?.pushViewController(targetVC, animated: true)
+        
+    }
     
 }
