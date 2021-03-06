@@ -22,6 +22,12 @@ class Utilities {
         return emailTest.evaluate(with: email)
     }
     
+    static func isValidPhoneNumber(phone: String?) -> Bool {
+        let charcterSet  = NSCharacterSet(charactersIn: "+0123456789").inverted
+        let inputString = phone?.components(separatedBy: charcterSet)
+        let filtered = inputString?.joined(separator: "")
+        return (phone == filtered) && ((filtered!.count) > 5) && ((filtered!.count) < 15)
+    }
 }
 
 

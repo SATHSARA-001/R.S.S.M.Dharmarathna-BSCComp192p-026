@@ -28,6 +28,44 @@ class RegisterVC: UIViewController {
     }
     
     //MARK:Functions
+    
+    
+    
+    func validateFields() -> String? {
+        
+        let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        // Check that all fields are filled in
+        if cleanedEmail == "" || cleanedPhone == "" || cleanedPassword == ""{
+            
+            return "Please fill in all fields."
+        }
+        
+        // Check if the email is correct format
+        
+        if Utilities.isValidEmailAddress(email: cleanedEmail) == false{
+            return "Invalid  email address"
+        }
+        
+        if Utilities.isValidPhoneNumber(phone: cleanedPhone) == false{
+            return "Invalid phone number"
+        }
+        
+        if Utilities.isPasswordValid(cleanedPassword) == false{
+            return "Password should contan 8 charcters with special character"
+        }
+        
+        
+        return nil
+    }
+    
+    
+    
+    
+    
+    
     func registerUser(){
         
         // Create cleaned versions of the data
@@ -76,7 +114,23 @@ class RegisterVC: UIViewController {
     
     //MARK:Actions
     @IBAction func registerAUser(_ sender: Any) {
-        registerUser()
+        
+        let validation = validateFields()
+        
+        if validation == nil{
+            registerUser()
+        }else{
+            let okAction = AlertAction(title: .Ok)
+            
+            AlertProvider(vc: self).showAlertWithActions(title: "Error", message:validation ?? "", actions: [okAction], completion: { action in
+                if action.title == .Ok {
+                } else {
+                    // Will dismiss alertView by default
+                }
+            })
+        }
+        
+        
     }
     
     func initLocationManager(){
