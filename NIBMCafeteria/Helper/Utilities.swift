@@ -55,3 +55,4 @@ extension Encodable {
         return json
     }
 }
+

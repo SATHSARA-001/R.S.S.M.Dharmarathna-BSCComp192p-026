@@ -7,8 +7,9 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
-class AccountVC: UIViewController {
+class AccountVC: UIViewController,LoadingIndicatorDelegate {
     
     @IBOutlet weak var avarterImg: UIImageView!
     @IBOutlet weak var profilePicBtn: UIButton!
@@ -16,10 +17,13 @@ class AccountVC: UIViewController {
     @IBOutlet weak var contactNoTxt: UITextField!
     
     let ref: DatabaseReference! = Database.database().reference()
+    let storage = Storage.storage().reference()
     let defaults = UserDefaults.standard
     var userID : String?
+    let picker = UIImagePickerController()
     var userList = [User]()
     var loginuser = [User]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +40,7 @@ class AccountVC: UIViewController {
     }
     
     func setupUI(){
+        picker.delegate = self
         avarterImg.layer.cornerRadius = avarterImg.frame.height / 2
         profilePicBtn.layer.cornerRadius = profilePicBtn.frame.height / 2
         
@@ -80,6 +85,9 @@ class AccountVC: UIViewController {
     
     @IBAction func uploadAvarter(_ sender: Any) {
         
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
         
     }
     
@@ -89,17 +97,57 @@ class AccountVC: UIViewController {
         let email = userNameTxt.text
         let contactNo = contactNoTxt.text
         
+        let user = ["email":email,"phone":contactNo,"userID":userID]
         
+        let refUsers: DatabaseReference! = Database.database().reference().child("users")
         
-        guard let key = ref.child("users").childByAutoId().key else { return }
-        let post = ["userID": userID,
-                    "email": email,
-                    "phone": contactNo]
+        refUsers.child(userID ?? "").setValue(user )
         
-        let childUpdates = ["/users/\(key)": post,
-                            "/user-posts/\(String(describing: userID))/\(key)/": post]
-        ref.updateChildValues(childUpdates)
+        fetchUserAccount()
+        setData()
         
     }
     
 }
+
+
+extension AccountVC:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage  else { return
+        }
+        guard let imageData = image.pngData() else { return  }
+        
+        self.startLoading()
+        storage.child("images/\(self.userID ?? "")").putData(imageData, metadata: nil, completion: {_,error in
+            
+            guard error == nil else{
+                print("failed to upload")
+                return
+            }
+            
+            self.storage.child("images/\(self.userID ?? "")").downloadURL { (url, error) in
+                self.stopLoading()
+                if error != nil{
+                    print(error?.localizedDescription)
+                }
+                
+                guard let url = url,error == nil else{
+                    return
+                }
+                
+                print(url.absoluteURL)
+                
+            }
+        })
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 import Firebase
 import CoreLocation
 
@@ -22,7 +23,8 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationAccess()
-        
+        emailTextField.text = "sathsara@gmail.com"
+        passwordTextField.text = "12345678"
     }
     
     func checkLocationAccess(){
@@ -62,7 +64,6 @@ class LoginVC: UIViewController {
         if Utilities.isValidEmailAddress(email: cleanedEmail) == false{
             return "Invalid formatted email address"
         }
-        
         
         return nil
     }
