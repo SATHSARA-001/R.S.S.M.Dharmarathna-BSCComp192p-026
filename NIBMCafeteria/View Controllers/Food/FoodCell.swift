@@ -35,6 +35,10 @@ class FoodCell: UITableViewCell {
             foodDescText.text = foodData.foodDescription
             foodPriceTxt.text = "Rs."+(foodData.foodprice ?? "N/A")
             
+            if let image = foodData.image {
+                foodImage.setImageWithUrl(image)
+            }
+            
             if foodData.offer != nil{
                 foodOfferTxt.isHidden = false
                 foodOfferTxt.text = (foodData.offer ?? "N/A")+"%Off"
