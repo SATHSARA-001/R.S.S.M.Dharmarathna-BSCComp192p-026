@@ -28,7 +28,25 @@ class LoginVC: UIViewController {
     
     //MARK:Functions
     
-    
+    func validateFields() -> String? {
+        
+        // Check that all fields are filled in
+        if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            
+            return "Please fill in all fields."
+        }
+        
+        // Check if the email is correct format
+        let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if Utilities.isValidEmailAddress(email: cleanedEmail) == false{
+            return "Invalid formatted email address"
+        }
+        
+        
+        return nil
+    }
     
     func loginUser(){
         
@@ -44,10 +62,13 @@ class LoginVC: UIViewController {
             if error != nil {
                 let okAction = AlertAction(title: .Ok)
                 
-                let mainstoryboard = UIStoryboard(name: "TabBarController", bundle: nil)
-                let viewController = mainstoryboard.instantiateViewController(withIdentifier: "MainTBC") as! UITabBarController
-                self.view.window?.rootViewController = viewController
-                self.view.window?.makeKeyAndVisible()
+                AlertProvider(vc: self).showAlertWithActions(title: "Error", message: error?.localizedDescription ?? "", actions: [okAction], completion: { action in
+                    if action.title == .Ok {
+                        
+                    } else {
+                        // Will dismiss alertView by default
+                    }
+                })
                 
             }
             else {
@@ -80,7 +101,23 @@ class LoginVC: UIViewController {
     
     //MARK:Actions
     @IBAction func login(_ sender: Any) {
-        loginUser()
+        
+        let validation = validateFields()
+        
+        if validation == nil{
+            loginUser()
+        }else{
+            let okAction = AlertAction(title: .Ok)
+            
+            AlertProvider(vc: self).showAlertWithActions(title: "Error", message:validation ?? "", actions: [okAction], completion: { action in
+                if action.title == .Ok {
+                } else {
+                    // Will dismiss alertView by default
+                }
+            })
+        }
+        
+        
     }
     
     @IBAction func resetPassword(_ sender: Any) {

@@ -16,18 +16,14 @@ class AccountVC: UIViewController {
     @IBOutlet weak var contactNoTxt: UITextField!
     
     let ref: DatabaseReference! = Database.database().reference()
-    
     let defaults = UserDefaults.standard
-    
     var userID : String?
-    
     var userList = [User]()
     var loginuser = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        setData()
+        
         
         // Do any additional setup after loading the view.
     }
@@ -35,6 +31,8 @@ class AccountVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchUserAccount()
+        setupUI()
+        setData()
     }
     
     func setupUI(){
@@ -67,7 +65,7 @@ class AccountVC: UIViewController {
                 self.loginuser = self.userList.filter({$0.userID == self.userID})
                 print(self.loginuser)
                 
-//                self.user.reloadData()
+                //                self.user.reloadData()
                 
             }
         }
@@ -75,12 +73,8 @@ class AccountVC: UIViewController {
     
     func setData(){
         
-        userID = defaults.string(forKey: "userID")
-        let contactNo = defaults.string(forKey: "phoneNumber")
-        let userName = defaults.string(forKey: "userName")
-        
-        userNameTxt.text = userName
-        contactNoTxt.text = contactNo
+        userNameTxt.text = loginuser.first?.email
+        contactNoTxt.text =  loginuser.first?.contactNo
         
     }
     
