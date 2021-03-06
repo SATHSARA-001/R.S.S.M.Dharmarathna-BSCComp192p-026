@@ -86,6 +86,18 @@ class RegisterVC: UIViewController {
                 let okAction = AlertAction(title: .Ok)
                 AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: "Registered Successfully" , actions: [okAction], completion: { action in
                     if action.title == .Ok {
+                        
+                        let defaults = UserDefaults.standard
+                        
+                        defaults.set(result?.user.uid, forKey: "userID")
+                        defaults.set(result?.user.phoneNumber, forKey: "phoneNumber")
+                        defaults.set(result?.user.email, forKey: "userName")
+                        
+                        let mainstoryboard = UIStoryboard(name: "TabBarController", bundle: nil)
+                        let viewController = mainstoryboard.instantiateViewController(withIdentifier: "MainTBC") as! UITabBarController
+                        self.view.window?.rootViewController = viewController
+                        self.view.window?.makeKeyAndVisible()
+                        
                         self.emailTextField.text = ""
                         self.phoneTextField.text = ""
                         self.passwordTextField.text = ""

@@ -23,7 +23,7 @@ class AccountVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        userID = defaults.string(forKey: "userID")
         
         // Do any additional setup after loading the view.
     }
@@ -64,7 +64,7 @@ class AccountVC: UIViewController {
                 
                 self.loginuser = self.userList.filter({$0.userID == self.userID})
                 print(self.loginuser)
-                
+                self.setData()
                 //                self.user.reloadData()
                 
             }
