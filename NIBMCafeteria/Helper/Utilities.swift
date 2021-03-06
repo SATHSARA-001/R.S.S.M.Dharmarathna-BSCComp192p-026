@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AlamofireImage
 import UIKit
 
 class Utilities {
@@ -56,3 +57,10 @@ extension Encodable {
     }
 }
 
+extension UIImageView {
+    func setImageWithUrl(_ urlString: String, placeholderImage: UIImage = UIImage()) {
+        if let url = URL(string: urlString) {
+            self.af_setImage(withURL: url, placeholderImage: placeholderImage, progressQueue: .global())
+        }
+    }
+}

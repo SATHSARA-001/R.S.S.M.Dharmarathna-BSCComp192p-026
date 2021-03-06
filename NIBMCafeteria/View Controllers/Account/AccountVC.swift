@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import AlamofireImage
+
 
 class AccountVC: UIViewController,LoadingIndicatorDelegate {
     
@@ -59,8 +61,9 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
                     let email  = userObject?["email"]
                     let phone  = userObject?["phone"]
                     let userID  = userObject?["userID"]
+                    let avarterImage = userObject?["avarter"]
                     
-                    let user = User(userID: userID as? String, contactNo: phone as? String, email: email as? String)
+                    let user = User(userID: userID as? String, contactNo: phone as? String, email: email as? String, avarterImage: avarterImage as? String)
                     
                     //appending it to list
                     self.userList.append(user)
@@ -80,6 +83,11 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
         
         userNameTxt.text = loginuser.first?.email
         contactNoTxt.text =  loginuser.first?.contactNo
+        let Image = loginuser.first?.avarterImage
+        
+        guard let imageData = Image else{return}
+        
+        avarterImg.setImageWithUrl(imageData)
         
     }
     
@@ -130,15 +138,25 @@ extension AccountVC:UIImagePickerControllerDelegate,UINavigationControllerDelega
             
             self.storage.child("images/\(self.userID ?? "")").downloadURL { (url, error) in
                 self.stopLoading()
-                if error != nil{
-                    print(error?.localizedDescription)
-                }
                 
                 guard let url = url,error == nil else{
                     return
                 }
                 
+                let refUsers: DatabaseReference! = Database.database().reference().child("users")
+                
+                let email = self.userNameTxt.text
+                let contactNo = self.contactNoTxt.text
+                
+                let user = ["email":email,"phone":contactNo,"userID":self.userID,"avarter":url.absoluteString]
+                
+                refUsers.child(self.userID ?? "").setValue(user )
+                
+                self.fetchUserAccount()
+                self.setData()
+                
                 print(url.absoluteURL)
+     
                 
             }
         })
