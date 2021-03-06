@@ -36,10 +36,6 @@ class LoginVC: UIViewController {
                 self.present(viewController, animated: true,completion: nil)
             case .authorizedAlways, .authorizedWhenInUse:
                 print("Access")
-                let mainstoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = mainstoryboard.instantiateViewController(withIdentifier: "RequestLocationVC") as! RequestLocationVC
-                viewController.modalPresentationStyle = .fullScreen
-                self.present(viewController, animated: true,completion: nil)
             @unknown default:
                 break
             }
