@@ -81,13 +81,14 @@ class FoodVC: UIViewController  {
                     let foodObject = foods.value as? [String: AnyObject]
                     
                     let categoryID  = foodObject?["categoryID"]
+                    let categoryName = foodObject?["categoryName"]
                     let foodDescription  = foodObject?["foodDescription"]
                     let foodname = foodObject?["foodname"]
                     let foodprice  = foodObject?["foodprice"]
                     let offer  = foodObject?["offer"]
                     let image = foodObject?["image"]
                     
-                    let food = Food(categoryID: categoryID as! String?, foodDescription: foodDescription as! String?, foodname: foodname as! String?, foodprice: foodprice as! String?, offer: offer as! String?, image: image as! String?)
+                    let food = Food(categoryName: categoryName as! String?, categoryID: categoryID as! String?, foodDescription: foodDescription as! String?, foodname: foodname as! String?, foodprice: foodprice as! String?, offer: offer as! String?, image: image as! String?)
                     //appending it to list
                     self.foodList.append(food)
                 }
@@ -176,8 +177,8 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let selectedCategoryID = categoryList[indexPath.row].categoryID
-        filteredFoodList = foodList.filter({$0.categoryID == selectedCategoryID})
+        let selectedCategoryName = categoryList[indexPath.row].categoryName
+        filteredFoodList = foodList.filter({$0.categoryName == selectedCategoryName})
         self.FoodTbl.reloadData()
         
     }
