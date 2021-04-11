@@ -9,7 +9,6 @@ import Foundation
 
 struct Food: Codable {
     
-    var categoryID: String?
     var categoryName: String?
     var foodDescription: String?
     var foodname : String?
@@ -18,8 +17,7 @@ struct Food: Codable {
     var offer: String?
     
     
-    public init(categoryName:String?,categoryID: String?,foodDescription: String?,foodname : String?,foodprice: String?,offer: String?,image:String?) {
-        self.categoryID = categoryID
+    public init(categoryName:String?,foodDescription: String?,foodname : String?,foodprice: String?,offer: String?,image:String?) {
         self.categoryName = categoryName
         self.foodDescription = foodDescription
         self.foodname = foodname
@@ -31,11 +29,10 @@ struct Food: Codable {
     
     public enum CodingKeys: String, CodingKey {
         case categoryName = "categoryName"
-        case categoryID = "categoryID"
-        case foodDescription = "foodD"
-        case foodname = "foodname"
-        case foodprice = "foodprice"
-        case offer = "offer"
+        case foodDescription = "itemDescription"
+        case foodname = "itemName"
+        case foodprice = "itemPrice"
+        case offer = "itemDiscount"
         case image = "image"
     }
     
