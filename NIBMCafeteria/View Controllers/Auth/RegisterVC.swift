@@ -10,7 +10,7 @@ import Firebase
 import CoreLocation
 
 
-class RegisterVC: UIViewController {
+class RegisterVC: UIViewController,LoadingIndicatorDelegate {
     
     //MARK:Outlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -20,6 +20,8 @@ class RegisterVC: UIViewController {
     //MARK:Variables
     var ref: DatabaseReference! = Database.database().reference()
     var locationManager = CLLocationManager()
+    let defaults = UserDefaults.standard
+
     
     //MARK:Life Cycle
     override func viewDidLoad() {
@@ -56,6 +58,23 @@ class RegisterVC: UIViewController {
         return nil
     }
     
+    
+    func getUserDetailsByUserID(userIDTxt:String?) {
+        self.startLoading()
+        let userID = userIDTxt ?? ""
+        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["name"] as? String ?? ""
+            self.defaults.set(username, forKey: "userName")
+            print(username)
+            self.stopLoading()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     //MARK:Register User Nwtwork Request
     func registerUser(){
         
@@ -87,11 +106,14 @@ class RegisterVC: UIViewController {
                 AlertProvider(vc: self).showAlertWithActions(title: "Alert", message: "Registered Successfully" , actions: [okAction], completion: { action in
                     if action.title == .Ok {
                         
-                        let defaults = UserDefaults.standard
                         
-                        defaults.set(result?.user.uid, forKey: "userID")
-                        defaults.set(result?.user.phoneNumber, forKey: "phoneNumber")
-                        defaults.set(result?.user.email, forKey: "userName")
+                        self.defaults.set(result?.user.uid, forKey: "userID")
+                        self.defaults.set(result?.user.phoneNumber, forKey: "phoneNumber")
+                        
+                        let userID = self.defaults.string(forKey: "userID") ?? ""
+
+                        
+                        self.getUserDetailsByUserID(userIDTxt: userID)
                         
                         let mainstoryboard = UIStoryboard(name: "TabBarController", bundle: nil)
                         let viewController = mainstoryboard.instantiateViewController(withIdentifier: "MainTBC") as! UITabBarController

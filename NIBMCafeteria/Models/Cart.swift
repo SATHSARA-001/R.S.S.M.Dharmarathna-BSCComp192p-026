@@ -16,7 +16,7 @@ struct Cart: Codable {
     var amount : Int?
     var total: Double?
     
-    public init( foodName: String?,foodPrice: Double?,amount : Int?,total: Double?,time: String?) {
+    public init(foodName: String?,foodPrice: Double?,amount : Int?,total: Double?,time: String?) {
         self.foodName = foodName
         self.foodPrice = foodPrice
         self.amount = amount

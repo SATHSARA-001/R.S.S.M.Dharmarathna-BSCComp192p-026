@@ -6,10 +6,10 @@
 //
 
 import UIKit
+import FirebaseStorage
 import Firebase
 
-
-class FoodVC: UIViewController  {
+class FoodVC: UIViewController,LoadingIndicatorDelegate  {
     
     @IBOutlet weak var FoodCategoryCV: UICollectionView!
     @IBOutlet weak var FoodTbl: UITableView!
@@ -118,6 +118,7 @@ class FoodVC: UIViewController  {
         }
     }
     
+    
     @IBAction func clickOrder(_ sender: Any) {
         if cart.count > 0{
             
@@ -125,6 +126,7 @@ class FoodVC: UIViewController  {
             
             let time = Date().convertDateToString(.FullDateTime_WithSlash_12Hours_dMy)
             let userID = defaults.string(forKey: "userID") ?? ""
+            let userName = defaults.string(forKey: "userName") ?? ""
             
             let total = cart.map({($0.total)})
             
@@ -134,7 +136,7 @@ class FoodVC: UIViewController  {
             
             let totalIS = String(totalAmt)
             
-            let cartObject = CartObject(cart: cart,time:time, userID: userID,totalAmt:totalIS )
+            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1 )
             
             do{
                 
@@ -145,7 +147,6 @@ class FoodVC: UIViewController  {
                 cart.removeAll()
                 cartTbl.reloadData()
                 setupUI()
-                
                 totalPriceBtn.setTitle("Order", for: .normal)
             }catch{
                 

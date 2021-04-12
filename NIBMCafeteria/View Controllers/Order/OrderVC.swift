@@ -46,9 +46,11 @@ class OrderVC: UIViewController {
                     let time  = categoryObject?["time"]
                     let userID  = categoryObject?["userID"]
                     let totalAmt  = categoryObject?["totalAmt"]
+                    let orderStatus = categoryObject?["orderStatus"]
+                    let userName = categoryObject?["userName"]
                     
                     
-                    let cartObject = CartObject(cart: cart as? [Cart], time: time as? String, userID: userID as? String, totalAmt: totalAmt as? String)
+                    let cartObject = CartObject(cart: cart as? [Cart], time: time as? String, userID: userID as? String, userName: userName as? String, totalAmt: totalAmt as? String,orderStatus:orderStatus as? Int)
                     
                     //appending it to list
                     self.orderList.append(cartObject)

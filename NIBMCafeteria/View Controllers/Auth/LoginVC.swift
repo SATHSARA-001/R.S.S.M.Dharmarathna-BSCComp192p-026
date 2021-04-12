@@ -10,7 +10,7 @@ import FirebaseStorage
 import Firebase
 import CoreLocation
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController,LoadingIndicatorDelegate {
     
     //MARK:Outlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -18,6 +18,8 @@ class LoginVC: UIViewController {
     
     //MARK:Variables
     var ref: DatabaseReference! = Database.database().reference()
+    let defaults = UserDefaults.standard
+    
     
     //MARK:Life Cycle
     override func viewDidLoad() {
@@ -69,6 +71,23 @@ class LoginVC: UIViewController {
     }
     
     //MARK:Login User Network Request
+    
+    func getUserDetailsByUserID(userIDTxt:String?) {
+        self.startLoading()
+        let userID = userIDTxt ?? ""
+        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["name"] as? String ?? ""
+            self.defaults.set(username, forKey: "userName")
+            print(username)
+            self.stopLoading()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     func loginUser(){
         
         // Create cleaned versions of the text field
@@ -91,11 +110,14 @@ class LoginVC: UIViewController {
                 
             }
             else {
-                let defaults = UserDefaults.standard
                 
-                defaults.set(result?.user.uid, forKey: "userID")
-                defaults.set(result?.user.phoneNumber, forKey: "phoneNumber")
-                defaults.set(result?.user.email, forKey: "userName")
+                
+                self.defaults.set(result?.user.uid, forKey: "userID")
+                self.defaults.set(result?.user.phoneNumber, forKey: "phoneNumber")
+                
+                let userID = self.defaults.string(forKey: "userID") ?? ""
+                
+                self.getUserDetailsByUserID(userIDTxt: userID)
                 
                 let okAction = AlertAction(title: .Ok)
                 
