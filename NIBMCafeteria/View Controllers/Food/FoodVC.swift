@@ -85,7 +85,7 @@ class FoodVC: UIViewController  {
                     let foodname = foodObject?["itemName"]
                     let foodprice  = foodObject?["itemPrice"]
                     let offer  = foodObject?["itemDiscount"]
-                    let image = foodObject?["image"]
+                    let image = foodObject?["imageURL"]
                     
                     let food = Food(categoryName: categoryName as! String?, foodDescription: foodDescription as! String?, foodname: foodname as! String?, foodprice: foodprice as! String?, offer: offer as! String?, image: image as! String?)
                     //appending it to list

@@ -33,7 +33,7 @@ struct Food: Codable {
         case foodname = "itemName"
         case foodprice = "itemPrice"
         case offer = "itemDiscount"
-        case image = "image"
+        case image = "imageURL"
     }
     
     
