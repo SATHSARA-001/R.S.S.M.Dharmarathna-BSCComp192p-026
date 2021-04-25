@@ -10,6 +10,8 @@ import FirebaseStorage
 import Firebase
 import Combine
 
+.///
+
 class FoodVC: UIViewController,LoadingIndicatorDelegate  {
     
     @IBOutlet weak var FoodCategoryCV: UICollectionView!
