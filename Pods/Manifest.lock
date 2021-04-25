@@ -35,6 +35,13 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.4)
   - GoogleDataTransport (8.2.0):
     - nanopb (~> 2.30907.0)
+  - GoogleMaps (4.1.0):
+    - GoogleMaps/Maps (= 4.1.0)
+  - GoogleMaps/Base (4.1.0)
+  - GoogleMaps/Maps (4.1.0):
+    - GoogleMaps/Base
+  - GooglePlaces (4.1.0):
+    - GoogleMaps/Base (= 4.1.0)
   - GoogleUtilities/AppDelegateSwizzler (7.2.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -65,6 +72,8 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - GoogleMaps
+  - GooglePlaces
   - RappleProgressHUD
 
 SPEC REPOS:
@@ -78,6 +87,8 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseStorage
     - GoogleDataTransport
+    - GoogleMaps
+    - GooglePlaces
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
@@ -95,6 +106,8 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 21842227253dafe61482065148fd044ba7983a41
   FirebaseStorage: 47890c9607e58b3046f072538c8c1ca4db2b0940
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
+  GoogleMaps: 008e2c80e38605b56b560e8deb73d4194ff30bef
+  GooglePlaces: a058b776259c13e1323c9ff135549cb1b13ad8e7
   GoogleUtilities: 31c5b01f978a70c6cff2afc6272b3f1921614b43
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
@@ -102,6 +115,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RappleProgressHUD: f29bc5dc5f9834c2caa9c2ae21ba11f3ff2b5a85
 
-PODFILE CHECKSUM: effe0bca9218d3b5e89a6762bb1cfbbfb7c5cc0d
+PODFILE CHECKSUM: aba97db71172d9e306c624c1e53a35eef87f9799
 
 COCOAPODS: 1.10.1

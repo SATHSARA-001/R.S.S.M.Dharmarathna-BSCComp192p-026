@@ -11,7 +11,9 @@ target 'NIBMCafeteria' do
     pod 'Firebase/Auth'
     pod 'AlamofireImage', '~> 4.1'
     pod 'Firebase/Storage'
-    pod "RappleProgressHUD" 
+    pod "RappleProgressHUD"
+    pod 'GoogleMaps'
+    pod 'GooglePlaces' 
 
 
 end

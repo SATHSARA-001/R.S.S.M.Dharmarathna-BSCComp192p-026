@@ -272,6 +272,7 @@
 				8C59865E25E4B628005A6F74 /* Frameworks */,
 				8C59865F25E4B628005A6F74 /* Resources */,
 				DD87836B156DC850C3C6BA45 /* [CP] Embed Pods Frameworks */,
+				4B669F48CEBB09AA3979D248 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,6 +332,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4B669F48CEBB09AA3979D248 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NIBMCafeteria/Pods-NIBMCafeteria-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NIBMCafeteria/Pods-NIBMCafeteria-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NIBMCafeteria/Pods-NIBMCafeteria-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		858B1F22D0AB267A183E010F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
