@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseStorage
 import Firebase
+import GoogleMaps
+import CoreLocation
 
 
 class FoodVC: UIViewController,LoadingIndicatorDelegate  {
@@ -21,7 +23,9 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
     
     let ref: DatabaseReference! = Database.database().reference().child("orders")
     let defaults = UserDefaults.standard
-    
+    var locationManager = CLLocationManager()
+    var latitudeCurrent : String? = ""
+    var longtudeCurrent : String? = ""
     
     var cart : [Cart] = []
     
@@ -121,6 +125,19 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
     
     
     @IBAction func clickOrder(_ sender: Any) {
+        
+        
+        locationManager.requestWhenInUseAuthorization()
+        var currentLoc: CLLocation!
+        if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == .authorizedAlways) {
+            currentLoc = locationManager.location
+            var a :String? = String(currentLoc.coordinate.latitude)
+            var latitudeCurrent =  String(currentLoc.coordinate.latitude)
+            var longtudeCurrent = String(currentLoc.coordinate.longitude)
+        }
+        
+        
         if cart.count > 0{
             
             var totalAmt = 0.0
@@ -137,7 +154,7 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
             
             let totalIS = String(totalAmt)
             
-            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1 )
+            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1,orderLocationLongitude:longtudeCurrent,orderLocationLatitude:latitudeCurrent)
             
             do{
                 
