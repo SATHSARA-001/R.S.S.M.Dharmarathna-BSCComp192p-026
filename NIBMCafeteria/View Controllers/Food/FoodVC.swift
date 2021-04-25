@@ -24,8 +24,8 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
     let ref: DatabaseReference! = Database.database().reference().child("orders")
     let defaults = UserDefaults.standard
     var locationManager = CLLocationManager()
-    var latitudeCurrent : String? = ""
-    var longtudeCurrent : String? = ""
+    var latitudeCurrent : String?
+    var longtudeCurrent : String?
     
     var cart : [Cart] = []
     
@@ -91,8 +91,9 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
                     let foodprice  = foodObject?["itemPrice"]
                     let offer  = foodObject?["itemDiscount"]
                     let image = foodObject?["imageURL"]
+                    let foodAvailability = foodObject?["availability"]
                     
-                    let food = Food(categoryName: categoryName as! String?, foodDescription: foodDescription as! String?, foodname: foodname as! String?, foodprice: foodprice as! String?, offer: offer as! String?, image: image as! String?)
+                    let food = Food(categoryName: categoryName as! String?, foodDescription: foodDescription as! String?, foodname: foodname as! String?, foodprice: foodprice as! String?, offer: offer as! String?, image: image as! String?,availability: foodAvailability as! Int?)
                     //appending it to list
                     self.foodList.append(food)
                 }
@@ -131,10 +132,11 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
         var currentLoc: CLLocation!
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
             CLLocationManager.authorizationStatus() == .authorizedAlways) {
-            currentLoc = locationManager.location
-            var a :String? = String(currentLoc.coordinate.latitude)
-            var latitudeCurrent =  String(currentLoc.coordinate.latitude)
-            var longtudeCurrent = String(currentLoc.coordinate.longitude)
+            if let currentLocationData = locationManager.location?.coordinate{
+                var latitudeCurrent =  String(currentLocationData.latitude)
+                var longtudeCurrent = String(currentLocationData.longitude)
+            }
+            
         }
         
         
@@ -154,7 +156,7 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
             
             let totalIS = String(totalAmt)
             
-            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1,orderLocationLongitude:longtudeCurrent,orderLocationLatitude:latitudeCurrent)
+            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1)
             
             do{
                 
@@ -196,7 +198,8 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let selectedCategoryName = categoryList[indexPath.row].categoryName
-        filteredFoodList = foodList.filter({$0.categoryName == selectedCategoryName})
+        filteredFoodList = foodList.filter({$0.categoryName == selectedCategoryName && $0.availability == 1})
+        
         self.FoodTbl.reloadData()
         
     }
