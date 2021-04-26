@@ -28,7 +28,9 @@ class OrderCell: UITableViewCell {
         
         let time = model.time?.convertStringToDate(.Time_24Hours)
         let currTime = Date().convertDateToString(.Time_24Hours).convertStringToDate(.Time_24Hours)
-        orderIDTxt.text = "Order ID "+String(index + 1)
+        
+        orderTimeDurationTxt.text = "13min Left"
+        orderIDTxt.text = model.orderID
       
         shadowView.addShadow()
     }

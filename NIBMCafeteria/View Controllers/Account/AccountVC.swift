@@ -103,9 +103,11 @@ class AccountVC: UIViewController,LoadingIndicatorDelegate {
                     let totalAmt  = categoryObject?["totalAmt"]
                     let orderStatus = categoryObject?["orderStatus"]
                     let orderID = categoryObject?["orderID"]
+                    let orderLocationLatitude = categoryObject?["orderLocationLatitude"]
+                    let orderLocationLongitude = categoryObject?["orderLocationLongitude"]
                     
                     
-                    let cartObject = CartObject(cart: cart as? [Cart], time: time as? String, userID: userID as? String, userName: userName as? String, totalAmt: totalAmt as? String, orderStatus: orderStatus as? Int, orderID: orderID as? String)
+                    let cartObject = CartObject(cart: cart as? [Cart], time: time as? String, userID: userID as? String, userName: userName as? String, totalAmt: totalAmt as? String, orderStatus: orderStatus as? Int, orderID: orderID as? String,orderLocationLatitude: orderLocationLatitude as? String,orderLocationLongitude: orderLocationLongitude as? String)
                     
                     //appending it to list
                     self.orderList.append(cartObject)

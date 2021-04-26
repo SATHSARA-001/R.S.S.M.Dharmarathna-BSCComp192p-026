@@ -8,6 +8,7 @@
 import Foundation
 
 struct CartObject: Codable {
+    
     var cart:[Cart]?
     var orderID:String?
     var time:String?
@@ -15,8 +16,10 @@ struct CartObject: Codable {
     var userName:String?
     var totalAmt:String?
     var orderStatus : Int?   //1:NEW, 2:PREPARATION, 3:READY, 4:ARRVING, 5:DONE, 6:CANCEL
+    var orderLocationLatitude : String?
+    var orderLocationLongitude : String?
     
-    public init(cart:[Cart]?,time:String?,userID:String?,userName:String?,totalAmt:String?,orderStatus:Int?,orderID:String?) {
+    public init(cart:[Cart]?,time:String?,userID:String?,userName:String?,totalAmt:String?,orderStatus:Int?,orderID:String?,orderLocationLatitude:String?,orderLocationLongitude:String?) {
         self.cart = cart
         self.time = time
         self.userID = userID
@@ -24,6 +27,8 @@ struct CartObject: Codable {
         self.totalAmt = totalAmt
         self.orderStatus = orderStatus
         self.orderID = orderID
+        self.orderLocationLatitude = orderLocationLatitude
+        self.orderLocationLongitude = orderLocationLongitude
     }
     
     public enum CodingKeys: String, CodingKey {
@@ -34,9 +39,9 @@ struct CartObject: Codable {
         case totalAmt = "totalAmt"
         case orderStatus = "orderStatus"
         case orderID = "orderID"
-
-
-
+        case orderLocationLatitude = "orderLocationLatitude"
+        case orderLocationLongitude = "orderLocationLongitude"
+        
     }
     
     

@@ -158,7 +158,7 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
             
             let totalIS = String(totalAmt)
             
-            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1, orderID: refData.key)
+            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1, orderID: refData.key,orderLocationLatitude: "a",orderLocationLongitude: "b")
             
             do{
                 
