@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--FoodVC-->
+        <!--Food-->
         <scene sceneID="dsA-ZF-wHi">
             <objects>
                 <viewController storyboardIdentifier="FoodVC" id="Dj9-dl-uWZ" customClass="FoodVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
@@ -249,19 +249,19 @@
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="1mo-3U-p72">
                                                                                             <rect key="frame" x="121" y="26.5" width="140" height="63.5"/>
                                                                                             <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-zN-OUT">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Food Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-zN-OUT">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="88" height="20.5"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                     <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foood Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6U-ZN-g4F">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Foood Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6U-ZN-g4F">
                                                                                                     <rect key="frame" x="0.0" y="21.5" width="140" height="20.5"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                     <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeT-OQ-gxo">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rs.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeT-OQ-gxo">
                                                                                                     <rect key="frame" x="0.0" y="43" width="33.5" height="20.5"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                     <nil key="textColor"/>
@@ -353,7 +353,9 @@
                             <constraint firstItem="9DW-Bz-9zE" firstAttribute="bottom" secondItem="axv-7r-eHo" secondAttribute="bottom" id="xs1-l8-18y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LNZ-rK-CxG"/>
+                    <navigationItem key="navigationItem" title="Food" id="LNZ-rK-CxG">
+                        <barButtonItem key="backBarButtonItem" title=" " id="CuG-aZ-Sv3"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="FoodCategoryCV" destination="z6x-OB-QFP" id="6Ph-Th-fII"/>
                         <outlet property="FoodTbl" destination="aHm-S0-9Lv" id="okD-bz-tbO"/>
@@ -496,7 +498,7 @@
             </objects>
             <point key="canvasLocation" x="1791.304347826087" y="77.678571428571431"/>
         </scene>
-        <!--OrderVC-->
+        <!--Order-->
         <scene sceneID="Lr8-xl-QDc">
             <objects>
                 <viewController storyboardIdentifier="OrderVC" id="msZ-Az-E5U" customClass="OrderVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
@@ -597,7 +599,9 @@
                             <constraint firstItem="LbK-ta-c3n" firstAttribute="top" secondItem="55o-gM-rKH" secondAttribute="top" id="b2y-9c-coC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wkG-bJ-Fdu"/>
+                    <navigationItem key="navigationItem" title="Order" id="wkG-bJ-Fdu">
+                        <barButtonItem key="backBarButtonItem" title=" " id="hTq-QZ-hxY"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="orderTbl" destination="R4a-rG-IUb" id="Mju-Wn-bcp"/>
                     </connections>
@@ -606,7 +610,7 @@
             </objects>
             <point key="canvasLocation" x="1011.5942028985507" y="829.6875"/>
         </scene>
-        <!--AccountVC-->
+        <!--Account-->
         <scene sceneID="66c-qq-z7b">
             <objects>
                 <viewController storyboardIdentifier="AccountVC" id="x2V-bf-0Go" customClass="AccountVC" customModule="NIBMCafeteria" customModuleProvider="target" sceneMemberID="viewController">
@@ -819,7 +823,8 @@
                             <constraint firstItem="RUZ-vf-Fx1" firstAttribute="trailing" secondItem="BRg-sp-5lv" secondAttribute="trailing" constant="20" id="zYK-iQ-f15"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Pop-du-kGv">
+                    <navigationItem key="navigationItem" title="Account" id="Pop-du-kGv">
+                        <barButtonItem key="backBarButtonItem" title=" " id="gOt-Wr-ILg"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" style="plain" id="OOo-CZ-rRh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AhV-1t-453">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>

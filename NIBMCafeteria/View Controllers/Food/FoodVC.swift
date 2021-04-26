@@ -148,6 +148,8 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
             let userID = defaults.string(forKey: "userID") ?? ""
             let userName = defaults.string(forKey: "userName") ?? ""
             
+            let refData = self.ref.childByAutoId()
+            
             let total = cart.map({($0.total)})
             
             for totValue in total {
@@ -156,13 +158,13 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
             
             let totalIS = String(totalAmt)
             
-            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1)
+            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1, orderID: refData.key)
             
             do{
                 
                 let obj =  try cartObject.toDictionary()
                 
-                self.ref.childByAutoId().setValue(obj)
+                refData.setValue(obj)
                 
                 cart.removeAll()
                 cartTbl.reloadData()
@@ -302,7 +304,7 @@ extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
                 add = (add + totValue!)
             }
             
-            let totPrice = "Order Rs. "+(String(add))
+            let totPrice = "Order Rs. "+"("+(String(add))+")"
             totalPriceBtn.setTitle(totPrice, for: .normal)
         }
         cartTbl.reloadData()
@@ -326,7 +328,7 @@ extension FoodVC:addItemsAmtDelegate,minItemsAmtDelegate{
                     add = (add + totValue!)
                 }
                 
-                let totPrice = "Order Rs. "+(String(add))
+                let totPrice = "Order Rs. "+"("+(String(add))+")"
                 totalPriceBtn.setTitle(totPrice, for: .normal)
             }
             

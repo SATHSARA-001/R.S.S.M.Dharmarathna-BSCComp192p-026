@@ -14,6 +14,9 @@ target 'NIBMCafeteria' do
     pod "RappleProgressHUD"
     pod 'GoogleMaps'
     pod 'GooglePlaces' 
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Messaging'
+
 
 
 end
