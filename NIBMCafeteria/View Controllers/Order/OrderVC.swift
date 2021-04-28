@@ -14,7 +14,8 @@ class OrderVC: UIViewController {
 
     
     var orderList = [CartObject]()
-    
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
@@ -54,8 +55,11 @@ class OrderVC: UIViewController {
                     
                     let cartObject = CartObject(cart: cart as? [Cart], time: time as? String, userID: userID as? String, userName: userName as? String, totalAmt: totalAmt as? String,orderStatus:orderStatus as? Int, orderID: orderID as? String,orderLocationLatitude: orderLocationLatitude as? String,orderLocationLongitude: orderLocationLongitude as? String)
                     
-                    //appending it to list
-                    self.orderList.append(cartObject)
+                   
+                        self.orderList.append(cartObject)
+
+                    
+                    
                     print(self.orderList.count)
                 }
                 
