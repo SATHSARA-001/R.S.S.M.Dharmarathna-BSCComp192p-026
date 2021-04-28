@@ -95,7 +95,11 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
                     
                     let food = Food(categoryName: categoryName as! String?, foodDescription: foodDescription as! String?, foodname: foodname as! String?, foodprice: foodprice as! String?, offer: offer as! String?, image: image as! String?,availability: foodAvailability as! Int?)
                     //appending it to list
-                    self.foodList.append(food)
+                    
+                    if food.availability == 1{
+                        self.foodList.append(food)
+                    }
+                    
                 }
                 
                 self.FoodTbl.reloadData()
