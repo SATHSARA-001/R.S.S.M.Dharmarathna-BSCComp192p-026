@@ -11,11 +11,11 @@ import Firebase
 class OrderVC: UIViewController {
     
     @IBOutlet weak var orderTbl: UITableView!
-
+    
     
     var orderList = [CartObject]()
     let defaults = UserDefaults.standard
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
@@ -55,10 +55,14 @@ class OrderVC: UIViewController {
                     
                     let cartObject = CartObject(cart: cart as? [Cart], time: time as? String, userID: userID as? String, userName: userName as? String, totalAmt: totalAmt as? String,orderStatus:orderStatus as? Int, orderID: orderID as? String,orderLocationLatitude: orderLocationLatitude as? String,orderLocationLongitude: orderLocationLongitude as? String)
                     
-                   
-                        self.orderList.append(cartObject)
-
+                    let userid = self.defaults.string(forKey: "userID")
                     
+                    if cartObject.userID == userid {
+                        if cartObject.orderStatus == 1 || cartObject.orderStatus == 2 || cartObject.orderStatus == 3 || cartObject.orderStatus == 4{
+                            self.orderList.append(cartObject)
+                            
+                        }
+                    }
                     
                     print(self.orderList.count)
                 }
