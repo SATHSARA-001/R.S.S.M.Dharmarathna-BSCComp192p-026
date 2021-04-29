@@ -16,7 +16,7 @@ target 'NIBMCafeteria' do
     pod 'GooglePlaces' 
     pod 'Firebase/Analytics'
     pod 'Firebase/Messaging'
-    pod 'GeoFire', '~> 4.0'
+    pod 'Alamofire'
 
 
 

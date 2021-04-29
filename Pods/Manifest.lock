@@ -112,6 +112,7 @@ PODS:
   - RappleProgressHUD (4.1)
 
 DEPENDENCIES:
+  - Alamofire
   - AlamofireImage (~> 4.1)
   - Firebase/Analytics
   - Firebase/Auth
@@ -171,6 +172,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RappleProgressHUD: f29bc5dc5f9834c2caa9c2ae21ba11f3ff2b5a85
 
-PODFILE CHECKSUM: 5408d8146f69c2f889ec4a0e740b583fa96ab6d1
+PODFILE CHECKSUM: f65896e2037b15b2195655adfe0dfaf435883005
 
 COCOAPODS: 1.10.1

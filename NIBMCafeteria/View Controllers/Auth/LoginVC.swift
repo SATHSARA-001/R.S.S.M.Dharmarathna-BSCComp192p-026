@@ -117,6 +117,10 @@ class LoginVC: UIViewController,LoadingIndicatorDelegate {
                 
                 let userID = self.defaults.string(forKey: "userID") ?? ""
                 
+                let fcmToken = self.defaults.string(forKey: "userFCM")
+                
+                self.ref.child("users").child(userID ?? "").updateChildValues(["fcmToken": fcmToken])
+                
                 self.getUserDetailsByUserID(userIDTxt: userID)
                 
                 let okAction = AlertAction(title: .Ok)

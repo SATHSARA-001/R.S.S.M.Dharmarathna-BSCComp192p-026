@@ -111,6 +111,10 @@ class RegisterVC: UIViewController,LoadingIndicatorDelegate {
                         self.defaults.set(result?.user.phoneNumber, forKey: "phoneNumber")
                         
                         let userID = self.defaults.string(forKey: "userID") ?? ""
+                        
+                        let fcmToken = self.defaults.string(forKey: "userFCM")
+                        
+                        self.ref.child("users").child(userID ?? "").updateChildValues(["fcmToken": fcmToken])
 
                         
                         self.getUserDetailsByUserID(userIDTxt: userID)
