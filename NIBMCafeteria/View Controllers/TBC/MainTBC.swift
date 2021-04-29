@@ -8,6 +8,8 @@
 import UIKit
 import CoreLocation
 import Firebase
+import Alamofire
+import SwiftyJSON
 
 
 
@@ -23,6 +25,8 @@ class MainTBC: UITabBarController,CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sendRequest()
+        
         isLocationAccessEnabled()
         fetchOrders()
         
@@ -64,6 +68,7 @@ class MainTBC: UITabBarController,CLLocationManagerDelegate {
             
         }
         
+        //        sendRequest()
         
     }
     
@@ -131,5 +136,42 @@ class MainTBC: UITabBarController,CLLocationManagerDelegate {
         }
     }
     
+    
+    
+    func sendRequest(){
+        
+        let requestString = "https://fcm.googleapis.com/fcm/send"
+        let projectID = "nibmcafeteria-26275"
+        let to = "daMp4VD2y0aZopWE4NVE8D:APA91bGVXz7KEwK5JzEMmuVWIvPFmb0TwTzmJSvf8Hd1wR2dod415Ff0-afEhjx6TKb7CKLPyrIR-X-umZ1fLYzqBjYvUiLr7ONbmtH-ikWedQJz4ancXjnq_AU3k3PKWiMoC9wYY7YC"
+        
+        let serverID = "AAAAIBz0fKQ:APA91bF6L8sdYTARR6EneEc1ixNBdivOpyQ1a_f49hCvZOaiB9i7LD40PyngB62F6g4VKaTWRnmXRq5n7FsT5C3ldek3qyTqKgZbRWpsmKtB_ZqA2WzPUhOPufrQ4C54MJMPKTbcDhtR"
+        
+        let headers : HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "key=\(serverID)"
+        ]
+        
+        var parameters:Parameters = [:]
+        
+        parameters["to"] = to
+        parameters["project_id"] = projectID
+        parameters["notification"] = ["title" : "Arrived !!! ","text": "Customer has arrived !!!"]
+        
+        
+        AF.request(requestString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { (response) in
+            print(response)
+            print(response.request)
+            print(response.data)
+            print(response.response)
+            print(response.error)
+            
+
+            
+            let text = String(data: response.data!, encoding: .utf8)
+            print(text)
+        }
+        
+        
+    }
     
 }

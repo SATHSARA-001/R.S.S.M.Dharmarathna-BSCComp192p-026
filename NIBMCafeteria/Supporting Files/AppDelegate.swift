@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  CafeManager
+//  NIBMCafeteria
 //
 //  Created by Sathsara Maduranga on 2021-02-23.
 //

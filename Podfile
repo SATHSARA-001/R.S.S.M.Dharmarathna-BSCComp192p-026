@@ -17,6 +17,7 @@ target 'NIBMCafeteria' do
     pod 'Firebase/Analytics'
     pod 'Firebase/Messaging'
     pod 'Alamofire'
+    pod 'SwiftyJSON'
 
 
 

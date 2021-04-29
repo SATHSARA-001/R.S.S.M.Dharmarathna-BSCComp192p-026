@@ -110,6 +110,7 @@ PODS:
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
   - RappleProgressHUD (4.1)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -122,6 +123,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - RappleProgressHUD
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
@@ -147,6 +149,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - RappleProgressHUD
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
@@ -171,7 +174,8 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RappleProgressHUD: f29bc5dc5f9834c2caa9c2ae21ba11f3ff2b5a85
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: f65896e2037b15b2195655adfe0dfaf435883005
+PODFILE CHECKSUM: 62bd9807c5035daef75797fc9af0029ac6c9fc48
 
 COCOAPODS: 1.10.1
