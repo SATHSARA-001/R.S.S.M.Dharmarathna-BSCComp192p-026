@@ -20,6 +20,7 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
     @IBOutlet weak var carTitleView: UIView!
     @IBOutlet weak var totalPriceBtn: CustomButton!
     @IBOutlet weak var noOfItemsLbl: UILabel!
+    @IBOutlet weak var selectCategoryAlertView: UIView!
     
     let ref: DatabaseReference! = Database.database().reference().child("orders")
     let defaults = UserDefaults.standard
@@ -36,6 +37,7 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectCategoryAlertView.isHidden = false
         fetchCategories()
         fetchFoods()
         setDelegate()
@@ -207,7 +209,8 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
         
         let selectedCategoryName = categoryList[indexPath.row].categoryName
         filteredFoodList = foodList.filter({$0.categoryName == selectedCategoryName && $0.availability == 1})
-        
+        selectCategoryAlertView.isHidden = true
+
         self.FoodTbl.reloadData()
         
     }
