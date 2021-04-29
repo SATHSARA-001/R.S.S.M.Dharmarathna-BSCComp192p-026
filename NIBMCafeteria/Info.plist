@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Application wants to use your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Application wants to use your location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access Images</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -62,14 +68,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Access Images</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-
-    <string>Application wants to use your location</string>
-
-    <key>NSLocationAlwaysUsageDescription</key>
-
-    <string>Application wants to use your location</string>
 </dict>
 </plist>

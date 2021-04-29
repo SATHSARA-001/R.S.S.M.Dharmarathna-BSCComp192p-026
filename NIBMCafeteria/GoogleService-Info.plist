@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>137924738212-1qbbejoh9m8j9ranvvtknuij0uqdppmc.apps.googleusercontent.com</string>
+	<string>137924738212-hl5smbj215rhe3k5tlqve2rkoiqclbfo.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.137924738212-1qbbejoh9m8j9ranvvtknuij0uqdppmc</string>
+	<string>com.googleusercontent.apps.137924738212-hl5smbj215rhe3k5tlqve2rkoiqclbfo</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAzzemo-7hOrfQLwmDmuWsXuw7IBCVDKLs</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.nibmcafeteria.nibm.NIBMCafeteria</string>
+	<string>com.cafe.com</string>
 	<key>PROJECT_ID</key>
 	<string>nibmcafeteria-26275</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:137924738212:ios:7f6f857ace4ff7662b7a31</string>
+	<string>1:137924738212:ios:7f30fd188ff161672b7a31</string>
+	<key>DATABASE_URL</key>
+	<string>https://nibmcafeteria-26275-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>
