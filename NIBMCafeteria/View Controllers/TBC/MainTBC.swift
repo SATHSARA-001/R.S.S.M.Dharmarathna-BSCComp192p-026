@@ -47,7 +47,7 @@ class MainTBC: UITabBarController,CLLocationManagerDelegate {
         if ordersList.count > 0{
             print(self.longitude)
             print(self.latitude)
-            let a = CLLocation(latitude: self.latitude ?? 1, longitude: self.longitude ?? 1)
+            let a = CLLocation(latitude: self.latitude ?? 55.0260565, longitude: self.longitude ?? 22.32601042)
             let b = CLLocation(latitude: 55.0260565, longitude: 22.32601042)
             let c = a.distance(from: b)
             if c < 10{
