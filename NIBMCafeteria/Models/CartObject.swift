@@ -14,12 +14,13 @@ struct CartObject: Codable {
     var time:String?
     var userID:String?
     var userName:String?
+    var userFCM:String?
     var totalAmt:String?
     var orderStatus : Int?   //1:NEW, 2:PREPARATION, 3:READY, 4:ARRVING, 5:DONE, 6:CANCEL
     var orderLocationLatitude : String?
     var orderLocationLongitude : String?
     
-    public init(cart:[Cart]?,time:String?,userID:String?,userName:String?,totalAmt:String?,orderStatus:Int?,orderID:String?,orderLocationLatitude:String?,orderLocationLongitude:String?) {
+    public init(cart:[Cart]?,time:String?,userID:String?,userName:String?,totalAmt:String?,orderStatus:Int?,orderID:String?,orderLocationLatitude:String?,orderLocationLongitude:String?,userFCM:String?) {
         self.cart = cart
         self.time = time
         self.userID = userID
@@ -29,6 +30,7 @@ struct CartObject: Codable {
         self.orderID = orderID
         self.orderLocationLatitude = orderLocationLatitude
         self.orderLocationLongitude = orderLocationLongitude
+        self.userFCM = userFCM
     }
     
     public enum CodingKeys: String, CodingKey {
@@ -41,6 +43,7 @@ struct CartObject: Codable {
         case orderID = "orderID"
         case orderLocationLatitude = "orderLocationLatitude"
         case orderLocationLongitude = "orderLocationLongitude"
+        case userFCM = "userFCM"
         
     }
     

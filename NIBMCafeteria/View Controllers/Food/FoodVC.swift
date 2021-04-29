@@ -152,6 +152,8 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
             let userID = defaults.string(forKey: "userID") ?? ""
             let userName = defaults.string(forKey: "userName") ?? ""
             
+            let userFCM = defaults.string(forKey: "userFCM")
+            
             let refData = self.ref.childByAutoId()
             
             let total = cart.map({($0.total)})
@@ -162,7 +164,7 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
             
             let totalIS = String(totalAmt)
             
-            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1, orderID: refData.key,orderLocationLatitude: "a",orderLocationLongitude: "b")
+            let cartObject = CartObject(cart: cart,time:time, userID: userID, userName: userName,totalAmt:totalIS, orderStatus: 1, orderID: refData.key,orderLocationLatitude: "a",orderLocationLongitude: "b",userFCM:userFCM)
             
             do{
                 
