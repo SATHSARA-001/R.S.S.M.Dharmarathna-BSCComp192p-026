@@ -13,11 +13,11 @@ protocol addItemsAmtDelegate {
 
 protocol minItemsAmtDelegate {
     func minAmtItems(amount:Int?,index:IndexPath?)
-
+    
 }
 
 class CartCell: UITableViewCell {
-
+    
     @IBOutlet weak var foodNameLbl: UILabel!
     @IBOutlet weak var amtLbl: UILabel!
     @IBOutlet weak var plusBtn: UIButton!
@@ -34,10 +34,10 @@ class CartCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -62,5 +62,5 @@ class CartCell: UITableViewCell {
         minDelegate?.minAmtItems(amount:modelDate?.amount,index: index)
     }
     
-
+    
 }

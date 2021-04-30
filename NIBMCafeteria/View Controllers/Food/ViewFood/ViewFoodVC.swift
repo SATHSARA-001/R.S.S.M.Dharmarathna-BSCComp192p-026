@@ -46,7 +46,7 @@ class ViewFoodVC: UIViewController {
         if let foodOfferAvailable = foodDetails?.offer{
             offerValueTxt.text = (foodDetails?.offer ?? "") + "% off"
             offerValueTxt.isHidden = false
-
+            
         }else{
             offerValueTxt.isHidden = true
         }
@@ -65,12 +65,7 @@ class ViewFoodVC: UIViewController {
         let foodamount : Int? = 1
         var total = 0.0
         total = (foodPrice ?? Double(foodamount!) )
-
         
-//        if foodDetails?.offer != nil{
-//            total = (foodPrice! - ((foodPrice! * offer! )/100 ))
-//        }else{
-        //}
         
         let newcart = Cart(foodName: foodName, foodPrice: foodPrice, amount: foodamount,total:total,time: "")
         self.delegate?.itemAddedToCart(model: newcart, index: index)

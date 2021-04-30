@@ -8,7 +8,7 @@
 import UIKit
 
 class OrderCell: UITableViewCell {
-
+    
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var orderIDTxt: UILabel!
     @IBOutlet weak var orderTimeDurationTxt: UILabel!
@@ -17,10 +17,10 @@ class OrderCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -31,8 +31,8 @@ class OrderCell: UITableViewCell {
         
         orderTimeDurationTxt.text = "13min Left"
         orderIDTxt.text = model.orderID
-      
+        
         shadowView.addShadow()
     }
-
+    
 }

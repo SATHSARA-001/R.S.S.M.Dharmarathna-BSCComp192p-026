@@ -41,18 +41,18 @@ class OrderVC: UIViewController {
                 self.orderList.removeAll()
                 
                 for orders in snapshot.children.allObjects as! [DataSnapshot]{
-                    let categoryObject = orders.value as? [String: AnyObject]
+                    let cartObjectData = orders.value as? [String: AnyObject]
                     
-                    let cart  = categoryObject?["cart"]
-                    let time  = categoryObject?["time"]
-                    let userID  = categoryObject?["userID"]
-                    let totalAmt  = categoryObject?["totalAmt"]
-                    let orderStatus = categoryObject?["orderStatus"]
-                    let userName = categoryObject?["userName"]
-                    let orderID = categoryObject?["orderID"]
-                    let orderLocationLatitude = categoryObject?["orderLocationLatitude"]
-                    let orderLocationLongitude = categoryObject?["orderLocationLongitude"]
-                    let userFCM = categoryObject?["userFCM"]
+                    let cart  = cartObjectData?["cart"]
+                    let time  = cartObjectData?["time"]
+                    let userID  = cartObjectData?["userID"]
+                    let totalAmt  = cartObjectData?["totalAmt"]
+                    let orderStatus = cartObjectData?["orderStatus"]
+                    let userName = cartObjectData?["userName"]
+                    let orderID = cartObjectData?["orderID"]
+                    let orderLocationLatitude = cartObjectData?["orderLocationLatitude"]
+                    let orderLocationLongitude = cartObjectData?["orderLocationLongitude"]
+                    let userFCM = cartObjectData?["userFCM"]
                     
                     let cartObject = CartObject(cart: cart as? [Cart], time: time as? String, userID: userID as? String, userName: userName as? String, totalAmt: totalAmt as? String,orderStatus:orderStatus as? Int, orderID: orderID as? String,orderLocationLatitude: orderLocationLatitude as? String,orderLocationLongitude: orderLocationLongitude as? String,userFCM: userFCM as? String)
                     
@@ -74,8 +74,6 @@ class OrderVC: UIViewController {
         }
         
     }
-    
-    
     
 }
 

@@ -21,7 +21,7 @@ class RegisterVC: UIViewController,LoadingIndicatorDelegate {
     var ref: DatabaseReference! = Database.database().reference()
     var locationManager = CLLocationManager()
     let defaults = UserDefaults.standard
-
+    
     
     //MARK:Life Cycle
     override func viewDidLoad() {
@@ -115,7 +115,7 @@ class RegisterVC: UIViewController,LoadingIndicatorDelegate {
                         let fcmToken = self.defaults.string(forKey: "userFCM")
                         
                         self.ref.child("users").child(userID ?? "").updateChildValues(["fcmToken": fcmToken])
-
+                        
                         
                         self.getUserDetailsByUserID(userIDTxt: userID)
                         

@@ -67,7 +67,6 @@ class FoodVC: UIViewController,LoadingIndicatorDelegate  {
                     
                     //appending it to list
                     self.categoryList.append(category)
-                    print(self.categoryList.count)
                 }
                 
                 self.FoodCategoryCV.reloadData()
@@ -210,7 +209,7 @@ extension FoodVC:UICollectionViewDelegate,UICollectionViewDataSource{
         let selectedCategoryName = categoryList[indexPath.row].categoryName
         filteredFoodList = foodList.filter({$0.categoryName == selectedCategoryName && $0.availability == 1})
         selectCategoryAlertView.isHidden = true
-
+        
         self.FoodTbl.reloadData()
         
     }
@@ -270,24 +269,20 @@ extension FoodVC:UITableViewDelegate,UITableViewDataSource{
 
 extension FoodVC:addItemDelegate{
     func itemAddedToCart(model: Cart?,index:Int?) {
-        print("added to cart")
         var add:Double = 0
         if let cartdate = model {
             cart.append(cartdate)
         }
         
         let total = cart.map({($0.total)})
-        print(total)
         
         for totValue in total {
             add = (add + totValue!)
         }
         
-        print(add)
         let totPrice = "Order (Rs."+(String(add)+")")
         totalPriceBtn.setTitle(totPrice, for: .normal)
         cartTbl.reloadData()
-        print(cart)
     }
     
 }
